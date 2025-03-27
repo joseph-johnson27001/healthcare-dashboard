@@ -1,8 +1,5 @@
 <template>
   <div class="card">
-    <div class="card-header">
-      <span class="card-title">{{ title }}</span>
-    </div>
     <div class="card-content">
       <slot></slot>
     </div>
@@ -32,15 +29,5 @@ export default {
   justify-content: space-between;
   cursor: pointer;
   margin-top: 20px;
-}
-
-.card-header {
-  font-family: "Assistant", sans-serif;
-  display: flex;
-  align-items: center;
-
-  font-size: 16px;
-  font-weight: 500;
-  color: #345a98;
 }
 </style>

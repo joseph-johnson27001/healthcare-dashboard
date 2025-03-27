@@ -1,5 +1,15 @@
 <template>
   <div class="table-container">
+    <div class="table-header">
+      <span class="table-title">Patient Admissions</span>
+      <input
+        v-model="searchQuery"
+        type="text"
+        placeholder="Search..."
+        class="search-bar"
+      />
+    </div>
+
     <table>
       <thead>
         <tr>
@@ -12,7 +22,7 @@
       </thead>
       <tbody>
         <tr
-          v-for="(patient, index) in paginatedPatients"
+          v-for="(patient, index) in filteredPatients"
           :key="index"
           :class="{ 'hover-row': true }"
         >
@@ -61,16 +71,30 @@ export default {
     return {
       currentPage: 1,
       itemsPerPage: 10,
+      searchQuery: "",
     };
   },
   computed: {
     totalPages() {
-      return Math.ceil(this.patients.length / this.itemsPerPage);
+      return Math.ceil(this.filteredPatients.length / this.itemsPerPage);
+    },
+    filteredPatients() {
+      return this.patients.filter((patient) => {
+        const searchTerm = this.searchQuery.toLowerCase();
+        return (
+          patient.id.toLowerCase().includes(searchTerm) ||
+          patient.name.toLowerCase().includes(searchTerm) ||
+          patient.admissionDate.toLowerCase().includes(searchTerm) ||
+          (patient.dischargeDate &&
+            patient.dischargeDate.toLowerCase().includes(searchTerm)) ||
+          patient.status.toLowerCase().includes(searchTerm)
+        );
+      });
     },
     paginatedPatients() {
       const start = (this.currentPage - 1) * this.itemsPerPage;
       const end = start + this.itemsPerPage;
-      return this.patients.slice(start, end);
+      return this.filteredPatients.slice(start, end);
     },
   },
   methods: {
@@ -86,6 +110,33 @@ export default {
 <style scoped>
 .table-container {
   background-color: #ffffff;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-title {
+  font-family: "Assistant", sans-serif;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #345a98;
+}
+
+.search-bar {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 300px;
+  outline: none;
+  font-size: 15px;
+  background: none;
+  font-family: "Assistant", sans-serif;
 }
 
 table {
