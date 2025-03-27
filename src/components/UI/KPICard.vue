@@ -63,7 +63,7 @@ export default {
   font-family: "Assistant", sans-serif;
   display: flex;
   align-items: center;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: #345a98;
 }

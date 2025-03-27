@@ -43,7 +43,7 @@ export default {
 }
 
 .add-patient-btn {
-  background: #6e8aff;
+  background: #6685ff;
   color: white;
   border: none;
   padding: 10px 12px;

@@ -159,7 +159,7 @@ td {
 }
 
 th {
-  background: rgba(50, 180, 120);
+  background: #6685ff;
   color: white;
   font-weight: 400;
   text-transform: uppercase;

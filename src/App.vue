@@ -357,7 +357,7 @@ table td {
   font-size: 14px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .kpi-section {
     grid-template-columns: 1fr 1fr;
   }
