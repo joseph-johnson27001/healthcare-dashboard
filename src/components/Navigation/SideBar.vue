@@ -153,7 +153,7 @@ export default {
 
 .icon-container {
   margin-right: 10px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .sidebar ul li i {
