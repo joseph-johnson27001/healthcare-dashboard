@@ -42,13 +42,14 @@ export default {
 
 <style scoped>
 .card {
+  align-items: center;
   background: white;
   padding: 15px;
   border-radius: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   cursor: pointer;
   transition: background-color 0.1s linear;
@@ -62,7 +63,6 @@ export default {
   font-family: "Assistant", sans-serif;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
   font-size: 15px;
   font-weight: 500;
   color: #345a98;
@@ -83,7 +83,7 @@ export default {
 }
 
 .value {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: #222;
 }
