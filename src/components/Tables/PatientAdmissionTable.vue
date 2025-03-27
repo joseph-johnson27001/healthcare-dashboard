@@ -133,7 +133,6 @@ export default {
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 14px;
   width: 300px;
   outline: none;
   font-size: 15px;
@@ -141,7 +140,6 @@ export default {
   font-family: "Assistant", sans-serif;
 }
 
-/* Add wrapper for horizontal scrolling */
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
