@@ -114,7 +114,7 @@ export default {
 .table-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .table-title {
@@ -185,7 +185,7 @@ tr:hover {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
   gap: 10px;
 }
 

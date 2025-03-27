@@ -55,7 +55,7 @@ export default {
 
 .search-area i {
   margin-right: 5px;
-  color: #007bff;
+  color: #333;
 }
 
 .search-area input {
