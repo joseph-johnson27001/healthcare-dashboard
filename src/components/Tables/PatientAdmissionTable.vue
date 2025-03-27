@@ -11,13 +11,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(patient, index) in patients" :key="index">
+        <tr
+          v-for="(patient, index) in patients"
+          :key="index"
+          :class="{ 'hover-row': true }"
+        >
           <td>{{ patient.id }}</td>
           <td>{{ patient.name }}</td>
           <td>{{ patient.admissionDate }}</td>
           <td>{{ patient.dischargeDate || "N/A" }}</td>
           <td
-            :class="patient.status === 'Discharged' ? 'discharged' : 'admitted'"
+            :class="{
+              discharged: patient.status === 'Discharged',
+              admitted: patient.status === 'Admitted',
+            }"
           >
             {{ patient.status }}
           </td>
@@ -39,31 +46,50 @@ export default {
 </script>
 
 <style scoped>
+.table-container {
+  background-color: #ffffff;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 th,
 td {
+  padding: 12px 15px;
+  border-left: none;
+  border-right: none;
   text-align: left;
-  border: 1px solid #ddd;
-}
-
-th {
-  background-color: #f1f1f1;
-}
-
-td {
   font-size: 14px;
 }
 
+th {
+  background: rgba(50, 180, 120);
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  color: #444;
+}
+
+tr:hover {
+  background-color: rgba(39, 148, 97, 0.1);
+}
+
 .discharged {
-  color: green;
+  color: #28a745;
 }
 
 .admitted {
-  color: red;
+  color: #ff4d4d;
+}
+
+.hover-row:hover td {
+  background-color: #f0f0f1;
 }
 </style>

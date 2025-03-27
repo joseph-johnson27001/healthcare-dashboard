@@ -133,7 +133,6 @@ export default {
 
 .sidebar ul li.logout-item {
   margin-top: auto;
-
   transition: color 0.3s ease;
 }
 
