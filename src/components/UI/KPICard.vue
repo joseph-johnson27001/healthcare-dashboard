@@ -59,7 +59,7 @@ export default {
 }
 
 .card-header {
-  font-family: "Roboto";
+  font-family: "Assistant", sans-serif;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -81,7 +81,7 @@ export default {
 
 .kpi-name {
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
   color: #274472;
 }
 

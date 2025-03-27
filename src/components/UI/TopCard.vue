@@ -4,7 +4,7 @@
     <div class="search-area">
       <i class="fas fa-search"></i>
       <i class="fas fa-bars" @click="openMobileNav"></i>
-      <input type="text" placeholder="Search..." />
+      <input type="text" placeholder="Search patients..." />
     </div>
 
     <!-- Right Section (Icons & Profile) -->
@@ -62,9 +62,9 @@ export default {
   flex-grow: 1;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 17px;
   background: none;
-  font-family: "Inter", sans-serif;
+  font-family: "Assistant", sans-serif;
 }
 
 .icon-area {
