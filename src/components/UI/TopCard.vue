@@ -4,7 +4,7 @@
     <div class="search-area">
       <i class="fas fa-search"></i>
       <i class="fas fa-bars" @click="openMobileNav"></i>
-      <input type="text" placeholder="Search patients..." />
+      <input type="text" placeholder="Search..." />
     </div>
 
     <!-- Right Section (Icons & Profile) -->

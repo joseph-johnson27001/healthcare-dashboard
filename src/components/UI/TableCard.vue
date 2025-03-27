@@ -2,7 +2,6 @@
   <div class="card">
     <div class="card-header">
       <span class="card-title">{{ title }}</span>
-      <i :class="iconClass"></i>
     </div>
     <div class="card-content">
       <slot></slot>
@@ -14,10 +13,6 @@
 export default {
   props: {
     title: {
-      type: String,
-      required: true,
-    },
-    iconClass: {
       type: String,
       required: true,
     },
@@ -43,16 +38,9 @@ export default {
   font-family: "Assistant", sans-serif;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+
   font-size: 16px;
   font-weight: 500;
   color: #345a98;
-}
-
-.card-header i {
-  color: #345a98;
-  margin-right: 10px;
-  font-size: 18px;
 }
 </style>

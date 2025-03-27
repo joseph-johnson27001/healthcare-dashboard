@@ -15,12 +15,12 @@
         />
       </div>
       <!-- Patient Admission Table Card -->
-      <TableCard title="Patient Admissions" :iconClass="'fas fa-hospital'">
+      <TableCard title="Patient Admissions">
         <PatientAdmissionTable :patients="patients" />
       </TableCard>
 
       <!-- Doctor Availability Table Card -->
-      <TableCard title="Doctor Availability" :iconClass="'fas fa-stethoscope'">
+      <TableCard title="Doctor Availability">
         <DoctorAvailabilityTable />
       </TableCard>
     </div>
@@ -213,7 +213,7 @@ export default {
 
 <style>
 body {
-  margin: 0px !important;
+  margin: 0px;
   scrollbar-width: none;
   font-family: "Inter", sans-serif;
   overflow-y: hidden;
@@ -225,7 +225,7 @@ body {
 
 #app {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
 }
 
@@ -234,9 +234,9 @@ body {
   background-color: #f6f5f8;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
   box-sizing: border-box;
   padding: 20px;
+  overflow-y: scroll;
 }
 
 .kpi-section {
@@ -246,7 +246,6 @@ body {
   margin-top: 20px;
 }
 
-/* Styling for tables */
 table {
   width: 100%;
   border-collapse: collapse;
