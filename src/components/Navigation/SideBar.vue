@@ -71,11 +71,10 @@ export default {
 
 <style scoped>
 .sidebar {
-  width: 260px;
+  width: 250px;
   background-color: rgb(255, 255, 255);
   color: rgba(47, 43, 61, 0.9);
-  min-height: 100%;
-  max-height: 100vh;
+  min-height: 100vh;
   padding-top: 20px;
   position: relative;
   z-index: 10;
@@ -87,11 +86,11 @@ export default {
   justify-content: space-between;
   transition: width 0.3s ease;
   overflow-y: scroll;
+  flex-shrink: 0;
 }
 
 .sidebar.collapsed {
   width: 80px;
-  padding-top: 30px;
 }
 
 .sidebar-title {
