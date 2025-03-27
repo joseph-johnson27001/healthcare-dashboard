@@ -72,8 +72,7 @@ export default {
 <style scoped>
 .sidebar {
   width: 250px;
-  background-color: rgb(255, 255, 255);
-  color: rgba(47, 43, 61, 0.9);
+  color: rgba(47, 43, 61);
   min-height: 100vh;
   padding-top: 20px;
   position: relative;
@@ -129,6 +128,7 @@ export default {
   align-items: center;
   transition: background-color 0.3s ease;
   white-space: nowrap;
+  color: rgba(47, 43, 61, 0.9);
 }
 
 .sidebar ul li.logout-item {
@@ -157,7 +157,6 @@ export default {
 .sidebar ul li i {
   margin-right: 10px;
   margin-left: 5px;
-  color: rgba(47, 43, 61, 0.9);
   font-size: 16px;
 }
 
