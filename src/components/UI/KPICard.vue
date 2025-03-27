@@ -65,7 +65,7 @@ export default {
   margin-bottom: 10px;
   font-size: 15px;
   font-weight: 500;
-  color: #274472;
+  color: #345a98;
 }
 
 .icon-container {

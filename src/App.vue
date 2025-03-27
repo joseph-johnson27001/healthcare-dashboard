@@ -14,14 +14,13 @@
           :iconContainerColor="kpi.iconContainerColor"
         />
       </div>
-
       <!-- Patient Admission Table Card -->
-      <TableCard title="Patient Admission and Discharge Tracker">
+      <TableCard title="Patient Admissions" :iconClass="'fas fa-hospital'">
         <PatientAdmissionTable :patients="patients" />
       </TableCard>
 
       <!-- Doctor Availability Table Card -->
-      <TableCard title="Doctor Availability Tracker">
+      <TableCard title="Doctor Availability" :iconClass="'fas fa-stethoscope'">
         <DoctorAvailabilityTable />
       </TableCard>
     </div>
@@ -32,7 +31,7 @@
 import SideBar from "./components/Navigation/SideBar.vue";
 import TopCard from "./components/UI/TopCard.vue";
 import KPICard from "./components/UI/KPICard.vue";
-import TableCard from "./components/UI/TableCard.vue"; // Import the TableCard component
+import TableCard from "./components/UI/TableCard.vue";
 import PatientAdmissionTable from "./components/Tables/PatientAdmissionTable.vue";
 import DoctorAvailabilityTable from "./components/Tables/DoctorAvailabilityTable.vue";
 
@@ -42,7 +41,7 @@ export default {
     SideBar,
     TopCard,
     KPICard,
-    TableCard, // Register the TableCard component here
+    TableCard,
     PatientAdmissionTable,
     DoctorAvailabilityTable,
   },
@@ -100,8 +99,6 @@ export default {
           iconContainerColor: "rgba(40, 167, 69, 0.1)",
         },
       ],
-
-      // Patient data moved to App.vue
       patients: [
         {
           id: "001",

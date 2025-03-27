@@ -34,7 +34,6 @@
 
     <!-- Pagination Controls -->
     <div class="pagination">
-      <!-- Page Numbers -->
       <div class="page-numbers">
         <button
           v-for="pageNumber in totalPages"
