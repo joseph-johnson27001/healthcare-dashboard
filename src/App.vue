@@ -1,17 +1,21 @@
 <template>
   <div id="app">
     <SideBar />
-    <div class="main-content"></div>
+    <div class="main-content">
+      <TopCard />
+    </div>
   </div>
 </template>
 
 <script>
 import SideBar from "./components/Navigation/SideBar.vue";
+import TopCard from "./components/UI/TopCard.vue";
 
 export default {
   name: "App",
   components: {
     SideBar,
+    TopCard,
   },
 };
 </script>
@@ -31,7 +35,7 @@ body {
 #app {
   display: flex;
   min-height: 100vh;
-  min-width: 100dvw;
+  width: 100%;
 }
 
 .main-content {
@@ -41,5 +45,6 @@ body {
   height: 100%;
   overflow-y: scroll;
   box-sizing: border-box;
+  padding: 20px;
 }
 </style>
