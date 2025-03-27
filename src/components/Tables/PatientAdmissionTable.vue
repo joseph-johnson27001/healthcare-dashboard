@@ -10,37 +10,40 @@
       />
     </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Patient ID</th>
-          <th>Patient Name</th>
-          <th>Admission Date</th>
-          <th>Discharge Date</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="(patient, index) in paginatedPatients"
-          :key="index"
-          :class="{ 'hover-row': true }"
-        >
-          <td>{{ patient.id }}</td>
-          <td>{{ patient.name }}</td>
-          <td>{{ patient.admissionDate }}</td>
-          <td>{{ patient.dischargeDate || "N/A" }}</td>
-          <td
-            :class="{
-              discharged: patient.status === 'Discharged',
-              admitted: patient.status === 'Admitted',
-            }"
+    <!-- Add wrapper with overflow-x to allow horizontal scrolling -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Patient ID</th>
+            <th>Patient Name</th>
+            <th>Admission Date</th>
+            <th>Discharge Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(patient, index) in paginatedPatients"
+            :key="index"
+            :class="{ 'hover-row': true }"
           >
-            {{ patient.status }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <td>{{ patient.id }}</td>
+            <td>{{ patient.name }}</td>
+            <td>{{ patient.admissionDate }}</td>
+            <td>{{ patient.dischargeDate || "N/A" }}</td>
+            <td
+              :class="{
+                discharged: patient.status === 'Discharged',
+                admitted: patient.status === 'Admitted',
+              }"
+            >
+              {{ patient.status }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!-- Pagination Controls -->
     <div class="pagination">
@@ -138,10 +141,17 @@ export default {
   font-family: "Assistant", sans-serif;
 }
 
+/* Add wrapper for horizontal scrolling */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
 table {
+  margin-top: 0;
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
 }
 
 th,
@@ -207,5 +217,22 @@ tr:hover {
 .page-numbers button.active-page {
   background-color: #28a745;
   color: white;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 800px) {
+  .table-header {
+    flex-direction: column;
+  }
+  .search-bar {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+
+  .table-title {
+    margin-bottom: 5px;
+    width: 100%;
+  }
 }
 </style>

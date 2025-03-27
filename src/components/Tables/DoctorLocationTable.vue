@@ -226,9 +226,6 @@ tr:hover {
     box-sizing: border-box;
     margin-top: 5px;
   }
-  .table-wrapper {
-    margin-top: -15px;
-  }
   .table-title {
     margin-bottom: 5px;
     width: 100%;
