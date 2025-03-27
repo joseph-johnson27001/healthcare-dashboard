@@ -74,7 +74,7 @@ export default {
   width: 250px;
   color: rgba(47, 43, 61);
   min-height: 100vh;
-  padding-top: 20px;
+  padding: 20px 0px;
   position: relative;
   z-index: 10;
   font-size: 15px;
@@ -138,10 +138,6 @@ export default {
 
 .sidebar ul li:hover {
   background-color: #f0f0f1;
-}
-
-.sidebar ul li.logout-item:hover i {
-  color: #ff4d4f;
 }
 
 .sidebar ul li.active {
