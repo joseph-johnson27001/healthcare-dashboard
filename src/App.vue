@@ -356,4 +356,16 @@ table th {
 table td {
   font-size: 14px;
 }
+
+@media (max-width: 1000px) {
+  .kpi-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .kpi-section {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
