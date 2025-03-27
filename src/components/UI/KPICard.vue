@@ -63,6 +63,9 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #274472;
 }
 
 .icon-container {
@@ -77,12 +80,6 @@ export default {
 
 .icon-container i {
   font-size: 20px;
-}
-
-.kpi-name {
-  font-size: 15px;
-  font-weight: 500;
-  color: #274472;
 }
 
 .value {

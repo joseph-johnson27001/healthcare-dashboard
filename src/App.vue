@@ -14,6 +14,16 @@
           :iconContainerColor="kpi.iconContainerColor"
         />
       </div>
+
+      <!-- Patient Admission Table Card -->
+      <TableCard title="Patient Admission and Discharge Tracker">
+        <PatientAdmissionTable :patients="patients" />
+      </TableCard>
+
+      <!-- Doctor Availability Table Card -->
+      <TableCard title="Doctor Availability Tracker">
+        <DoctorAvailabilityTable />
+      </TableCard>
     </div>
   </div>
 </template>
@@ -22,6 +32,9 @@
 import SideBar from "./components/Navigation/SideBar.vue";
 import TopCard from "./components/UI/TopCard.vue";
 import KPICard from "./components/UI/KPICard.vue";
+import TableCard from "./components/UI/TableCard.vue"; // Import the TableCard component
+import PatientAdmissionTable from "./components/Tables/PatientAdmissionTable.vue";
+import DoctorAvailabilityTable from "./components/Tables/DoctorAvailabilityTable.vue";
 
 export default {
   name: "App",
@@ -29,6 +42,9 @@ export default {
     SideBar,
     TopCard,
     KPICard,
+    TableCard, // Register the TableCard component here
+    PatientAdmissionTable,
+    DoctorAvailabilityTable,
   },
   data() {
     return {
@@ -55,7 +71,6 @@ export default {
           name: "Pending Lab Results",
           value: "12",
         },
-
         {
           icon: "fas fa-heartbeat",
           name: "Critical Patients",
@@ -83,6 +98,38 @@ export default {
           value: "15",
           iconColor: "#28a745",
           iconContainerColor: "rgba(40, 167, 69, 0.1)",
+        },
+      ],
+
+      // Patient data moved to App.vue
+      patients: [
+        {
+          id: "001",
+          name: "Alice Johnson",
+          admissionDate: "March 25, 2025",
+          dischargeDate: "",
+          status: "Admitted",
+        },
+        {
+          id: "002",
+          name: "Bob Matthews",
+          admissionDate: "March 26, 2025",
+          dischargeDate: "March 27, 2025",
+          status: "Discharged",
+        },
+        {
+          id: "003",
+          name: "Sarah Turner",
+          admissionDate: "March 24, 2025",
+          dischargeDate: "",
+          status: "Admitted",
+        },
+        {
+          id: "004",
+          name: "Michael Harris",
+          admissionDate: "March 23, 2025",
+          dischargeDate: "March 26, 2025",
+          status: "Discharged",
         },
       ],
     };
@@ -123,5 +170,46 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-top: 20px;
+}
+
+/* Styling for tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+td {
+  background-color: #ffffff;
+}
+
+tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+table td {
+  font-size: 14px;
 }
 </style>
