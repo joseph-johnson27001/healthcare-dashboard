@@ -210,7 +210,7 @@ tr:hover {
 }
 
 .page-numbers button.active-page {
-  background-color: #28a745;
+  background-color: #6685ff;
   color: white;
 }
 
