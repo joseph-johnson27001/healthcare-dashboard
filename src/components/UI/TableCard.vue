@@ -29,5 +29,6 @@ export default {
   justify-content: space-between;
   cursor: pointer;
   margin-top: 20px;
+  overflow: hidden;
 }
 </style>

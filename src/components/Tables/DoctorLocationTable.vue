@@ -10,37 +10,40 @@
       />
     </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Doctor ID</th>
-          <th>Doctor Name</th>
-          <th>Specialty</th>
-          <th>Current Location</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="(doctor, index) in paginatedDoctors"
-          :key="index"
-          :class="{ 'hover-row': true }"
-        >
-          <td>{{ doctor.id }}</td>
-          <td>{{ doctor.name }}</td>
-          <td>{{ doctor.specialty }}</td>
-          <td>{{ doctor.currentLocation }}</td>
-          <td
-            :class="{
-              available: doctor.status === 'Available',
-              unavailable: doctor.status === 'Unavailable',
-            }"
+    <!-- Add wrapper with overflow-x to allow horizontal scrolling -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Doctor ID</th>
+            <th>Doctor Name</th>
+            <th>Specialty</th>
+            <th>Current Location</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(doctor, index) in paginatedDoctors"
+            :key="index"
+            :class="{ 'hover-row': true }"
           >
-            {{ doctor.status }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <td>{{ doctor.id }}</td>
+            <td>{{ doctor.name }}</td>
+            <td>{{ doctor.specialty }}</td>
+            <td>{{ doctor.currentLocation }}</td>
+            <td
+              :class="{
+                available: doctor.status === 'Available',
+                unavailable: doctor.status === 'Unavailable',
+              }"
+            >
+              {{ doctor.status }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <!-- Pagination Controls -->
     <div class="pagination">
@@ -137,10 +140,16 @@ export default {
   font-family: "Assistant", sans-serif;
 }
 
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
 table {
+  margin-top: 0;
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
 }
 
 th,
@@ -206,5 +215,23 @@ tr:hover {
 .page-numbers button.active-page {
   background-color: #28a745;
   color: white;
+}
+
+@media (max-width: 800px) {
+  .table-header {
+    flex-direction: column;
+  }
+  .search-bar {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+  .table-wrapper {
+    margin-top: -15px;
+  }
+  .table-title {
+    margin-bottom: 5px;
+    width: 100%;
+  }
 }
 </style>
