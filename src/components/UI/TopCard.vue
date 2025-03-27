@@ -1,10 +1,10 @@
 <template>
   <div class="top-card">
-    <!-- Left Section (Search) -->
-    <div class="search-area">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-bars" @click="openMobileNav"></i>
-      <input type="text" placeholder="Search..." />
+    <!-- Left Section (Add Patient Button) -->
+    <div class="add-patient">
+      <button class="add-patient-btn">
+        <i class="fas fa-user-plus"></i> Add Patient
+      </button>
     </div>
 
     <!-- Right Section (Icons & Profile) -->
@@ -27,11 +27,6 @@
 <script>
 export default {
   name: "TopCard",
-  methods: {
-    openMobileNav() {
-      this.$emit("toggle-mobile-nav");
-    },
-  },
 };
 </script>
 
@@ -47,24 +42,21 @@ export default {
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.search-area {
+.add-patient-btn {
+  background: #6e8aff;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  flex-grow: 1;
+  gap: 8px;
 }
 
-.search-area i {
-  margin-right: 5px;
-  color: #333;
-}
-
-.search-area input {
-  flex-grow: 1;
-  border: none;
-  outline: none;
-  font-size: 17px;
-  background: none;
-  font-family: "Assistant", sans-serif;
+.add-patient-btn i {
+  font-size: 18px;
 }
 
 .icon-area {
@@ -119,21 +111,10 @@ export default {
   border: 2px solid white;
 }
 
-.fa-bars {
-  display: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
 @media (max-width: 699px) {
-  input {
-    display: none;
-  }
-  .fa-search {
-    display: none;
-  }
-  .fa-bars {
-    display: block;
+  .add-patient-btn {
+    font-size: 14px;
+    padding: 8px 12px;
   }
 }
 </style>
