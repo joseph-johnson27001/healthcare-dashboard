@@ -105,7 +105,7 @@ export default {
   font-family: "Unica One", sans-serif;
   font-weight: 400;
   margin: 0;
-  color: rgb(39, 148, 97);
+  color: #6685ff;
 }
 
 .sidebar-title i {
@@ -143,11 +143,7 @@ export default {
 }
 
 .sidebar ul li.active {
-  background: linear-gradient(
-    270deg,
-    rgba(50, 180, 120, 0.7),
-    rgb(50, 180, 120)
-  );
+  background: #6685ff;
   color: white;
 }
 

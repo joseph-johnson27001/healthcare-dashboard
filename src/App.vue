@@ -302,7 +302,7 @@ body {
 
 .main-content {
   flex-grow: 1;
-  background-color: #f6f5f8;
+  background-color: #f0eff2;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
