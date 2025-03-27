@@ -51,11 +51,11 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.1s linear;
 }
 
 .card:hover {
-  background-color: #fafafa;
+  background-color: #f8f8f8;
 }
 
 .card-header {
