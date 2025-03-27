@@ -14,14 +14,13 @@
           :iconContainerColor="kpi.iconContainerColor"
         />
       </div>
-      <!-- Patient Admission Table Card -->
-      <TableCard title="Patient Admissions">
+
+      <TableCard>
         <PatientAdmissionTable :patients="patients" />
       </TableCard>
 
-      <!-- Doctor Availability Table Card -->
-      <TableCard title="Doctor Availability">
-        <DoctorAvailabilityTable />
+      <TableCard>
+        <DoctorLocationTable :doctors="doctors" />
       </TableCard>
     </div>
   </div>
@@ -33,7 +32,7 @@ import TopCard from "./components/UI/TopCard.vue";
 import KPICard from "./components/UI/KPICard.vue";
 import TableCard from "./components/UI/TableCard.vue";
 import PatientAdmissionTable from "./components/Tables/PatientAdmissionTable.vue";
-import DoctorAvailabilityTable from "./components/Tables/DoctorAvailabilityTable.vue";
+import DoctorLocationTable from "./components/Tables/DoctorLocationTable.vue";
 
 export default {
   name: "App",
@@ -43,7 +42,7 @@ export default {
     KPICard,
     TableCard,
     PatientAdmissionTable,
-    DoctorAvailabilityTable,
+    DoctorLocationTable,
   },
   data() {
     return {
@@ -204,6 +203,78 @@ export default {
           admissionDate: "March 12, 2025",
           dischargeDate: "",
           status: "Admitted",
+        },
+      ],
+      doctors: [
+        {
+          id: "D001",
+          name: "Dr. John Doe",
+          specialty: "Cardiology",
+          currentLocation: "Cardiology Department, City Hospital",
+          status: "Available",
+        },
+        {
+          id: "D002",
+          name: "Dr. Jane Smith",
+          specialty: "Neurology",
+          currentLocation: "Neurology Clinic, Downtown Health Center",
+          status: "Unavailable",
+        },
+        {
+          id: "D003",
+          name: "Dr. Emily White",
+          specialty: "Orthopedics",
+          currentLocation: "Orthopedic Ward, City Medical Center",
+          status: "Available",
+        },
+        {
+          id: "D004",
+          name: "Dr. Michael Brown",
+          specialty: "Pediatrics",
+          currentLocation: "Pediatric Unit, Children's Hospital",
+          status: "Unavailable",
+        },
+        {
+          id: "D005",
+          name: "Dr. Sarah Johnson",
+          specialty: "Dermatology",
+          currentLocation: "Dermatology Clinic, Westside Medical",
+          status: "Available",
+        },
+        {
+          id: "D006",
+          name: "Dr. David Lee",
+          specialty: "General Surgery",
+          currentLocation: "Surgical Unit, Regional Hospital",
+          status: "Unavailable",
+        },
+        {
+          id: "D007",
+          name: "Dr. Jessica Green",
+          specialty: "Obstetrics & Gynecology",
+          currentLocation: "OB/GYN Department, City Medical Center",
+          status: "Available",
+        },
+        {
+          id: "D008",
+          name: "Dr. Robert Adams",
+          specialty: "Psychiatry",
+          currentLocation: "Psychiatric Ward, State Mental Health Center",
+          status: "Available",
+        },
+        {
+          id: "D009",
+          name: "Dr. Lisa Thompson",
+          specialty: "Endocrinology",
+          currentLocation: "Endocrinology Clinic, Northside Hospital",
+          status: "Unavailable",
+        },
+        {
+          id: "D010",
+          name: "Dr. William Harris",
+          specialty: "Gastroenterology",
+          currentLocation: "Gastroenterology Department, Downtown Hospital",
+          status: "Available",
         },
       ],
     };

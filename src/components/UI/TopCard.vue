@@ -54,8 +54,8 @@ export default {
 }
 
 .search-area i {
-  margin-right: 10px;
-  color: rgba(47, 43, 61);
+  margin-right: 5px;
+  color: #007bff;
 }
 
 .search-area input {
@@ -70,13 +70,13 @@ export default {
 .icon-area {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .icon-area i {
   font-size: 18px;
   cursor: pointer;
-  color: rgba(47, 43, 61);
+  color: #333;
   position: relative;
 }
 

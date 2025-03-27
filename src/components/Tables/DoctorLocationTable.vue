@@ -1,11 +1,11 @@
 <template>
   <div class="table-container">
     <div class="table-header">
-      <span class="table-title">Patient Admissions</span>
+      <span class="table-title">Doctor Information</span>
       <input
         v-model="searchQuery"
         type="text"
-        placeholder="Search Patients..."
+        placeholder="Search Doctors..."
         class="search-bar"
       />
     </div>
@@ -13,30 +13,30 @@
     <table>
       <thead>
         <tr>
-          <th>Patient ID</th>
-          <th>Patient Name</th>
-          <th>Admission Date</th>
-          <th>Discharge Date</th>
+          <th>Doctor ID</th>
+          <th>Doctor Name</th>
+          <th>Specialty</th>
+          <th>Current Location</th>
           <th>Status</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="(patient, index) in paginatedPatients"
+          v-for="(doctor, index) in paginatedDoctors"
           :key="index"
           :class="{ 'hover-row': true }"
         >
-          <td>{{ patient.id }}</td>
-          <td>{{ patient.name }}</td>
-          <td>{{ patient.admissionDate }}</td>
-          <td>{{ patient.dischargeDate || "N/A" }}</td>
+          <td>{{ doctor.id }}</td>
+          <td>{{ doctor.name }}</td>
+          <td>{{ doctor.specialty }}</td>
+          <td>{{ doctor.currentLocation }}</td>
           <td
             :class="{
-              discharged: patient.status === 'Discharged',
-              admitted: patient.status === 'Admitted',
+              available: doctor.status === 'Available',
+              unavailable: doctor.status === 'Unavailable',
             }"
           >
-            {{ patient.status }}
+            {{ doctor.status }}
           </td>
         </tr>
       </tbody>
@@ -61,7 +61,7 @@
 <script>
 export default {
   props: {
-    patients: {
+    doctors: {
       type: Array,
       required: true,
     },
@@ -74,26 +74,25 @@ export default {
     };
   },
   computed: {
-    filteredPatients() {
-      return this.patients.filter((patient) => {
+    filteredDoctors() {
+      return this.doctors.filter((doctor) => {
         const searchTerm = this.searchQuery.toLowerCase();
         return (
-          patient.id.toLowerCase().includes(searchTerm) ||
-          patient.name.toLowerCase().includes(searchTerm) ||
-          patient.admissionDate.toLowerCase().includes(searchTerm) ||
-          (patient.dischargeDate &&
-            patient.dischargeDate.toLowerCase().includes(searchTerm)) ||
-          patient.status.toLowerCase().includes(searchTerm)
+          doctor.id.toLowerCase().includes(searchTerm) ||
+          doctor.name.toLowerCase().includes(searchTerm) ||
+          doctor.specialty.toLowerCase().includes(searchTerm) ||
+          doctor.currentLocation.toLowerCase().includes(searchTerm) ||
+          doctor.status.toLowerCase().includes(searchTerm)
         );
       });
     },
     totalPages() {
-      return Math.ceil(this.filteredPatients.length / this.itemsPerPage);
+      return Math.ceil(this.filteredDoctors.length / this.itemsPerPage);
     },
-    paginatedPatients() {
+    paginatedDoctors() {
       const start = (this.currentPage - 1) * this.itemsPerPage;
       const end = start + this.itemsPerPage;
-      return this.filteredPatients.slice(start, end);
+      return this.filteredDoctors.slice(start, end);
     },
   },
   methods: {
@@ -169,11 +168,11 @@ tr:hover {
   background-color: rgba(39, 148, 97, 0.1);
 }
 
-.discharged {
+.available {
   color: #28a745;
 }
 
-.admitted {
+.unavailable {
   color: #ff4d4d;
 }
 
