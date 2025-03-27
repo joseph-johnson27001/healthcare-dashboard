@@ -29,14 +29,31 @@ export default {
       activeItem: "dashboard",
       collapsed: false,
       menuItems: [
-        { name: "dashboard", label: "Dashboard", icon: "far fa-envelope-open" },
-        { name: "shipments", label: "Shipments", icon: "far fa-calendar" },
-        { name: "fleet", label: "Fleet", icon: "far fa-lightbulb" },
-        { name: "inventory", label: "Inventory", icon: "far fa-file" },
-        { name: "reports", label: "Reports", icon: "far fa-chart-bar" },
-        { name: "analytics", label: "Analytics", icon: "fas fa-chart-line" },
-        { name: "support", label: "Support", icon: "far fa-user-circle" },
-        { name: "settings", label: "Settings", icon: "far fa-save" },
+        { name: "dashboard", label: "Dashboard", icon: "fas fa-home" },
+        {
+          name: "appointments",
+          label: "Appointments",
+          icon: "far fa-calendar-check",
+        },
+        { name: "patients", label: "Patients", icon: "fas fa-user-injured" },
+        { name: "doctors", label: "Doctors", icon: "fas fa-user-doctor" },
+        {
+          name: "medical-records",
+          label: "Medical Records",
+          icon: "fas fa-file-medical",
+        },
+        { name: "prescriptions", label: "Prescriptions", icon: "fas fa-pills" },
+        {
+          name: "billing",
+          label: "Billing & Payments",
+          icon: "fas fa-file-invoice-dollar",
+        },
+        {
+          name: "reports",
+          label: "Reports & Analytics",
+          icon: "fas fa-chart-line",
+        },
+        { name: "settings", label: "Settings", icon: "fas fa-cog" },
         { name: "logout", label: "Logout", icon: "fas fa-sign-out-alt" },
       ],
     };
@@ -112,6 +129,7 @@ export default {
   display: flex;
   align-items: center;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
 .sidebar ul li.logout-item {
