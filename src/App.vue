@@ -14,13 +14,12 @@
           :iconContainerColor="kpi.iconContainerColor"
         />
       </div>
-
       <TableCard>
-        <PatientAdmissionTable :patients="patients" />
+        <DoctorLocationTable :doctors="doctors" />
       </TableCard>
 
       <TableCard>
-        <DoctorLocationTable :doctors="doctors" />
+        <PatientAdmissionTable :patients="patients" />
       </TableCard>
     </div>
   </div>
