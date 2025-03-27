@@ -14,7 +14,9 @@
         }"
         @click="setActive(item.name)"
       >
-        <i :class="item.icon"></i>
+        <div class="icon-container">
+          <i :class="item.icon"></i>
+        </div>
         <span v-if="!collapsed">{{ item.label }}</span>
       </li>
     </ul>
@@ -149,9 +151,12 @@ export default {
   color: white;
 }
 
-.sidebar ul li i {
+.icon-container {
   margin-right: 10px;
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+.sidebar ul li i {
   font-size: 16px;
 }
 
