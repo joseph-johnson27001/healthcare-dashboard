@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr
-          v-for="(patient, index) in patients"
+          v-for="(patient, index) in paginatedPatients"
           :key="index"
           :class="{ 'hover-row': true }"
         >
@@ -31,6 +31,22 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+      <!-- Page Numbers -->
+      <div class="page-numbers">
+        <button
+          v-for="pageNumber in totalPages"
+          :key="pageNumber"
+          :class="{ 'active-page': currentPage === pageNumber }"
+          @click="goToPage(pageNumber)"
+          class="pagination-button"
+        >
+          {{ pageNumber }}
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,6 +56,29 @@ export default {
     patients: {
       type: Array,
       required: true,
+    },
+  },
+  data() {
+    return {
+      currentPage: 1,
+      itemsPerPage: 5,
+    };
+  },
+  computed: {
+    totalPages() {
+      return Math.ceil(this.patients.length / this.itemsPerPage);
+    },
+    paginatedPatients() {
+      const start = (this.currentPage - 1) * this.itemsPerPage;
+      const end = start + this.itemsPerPage;
+      return this.patients.slice(start, end);
+    },
+  },
+  methods: {
+    goToPage(pageNumber) {
+      if (pageNumber >= 1 && pageNumber <= this.totalPages) {
+        this.currentPage = pageNumber;
+      }
     },
   },
 };
@@ -58,7 +97,7 @@ table {
 
 th,
 td {
-  padding: 12px 15px;
+  padding: 15px;
   border-left: none;
   border-right: none;
   text-align: left;
@@ -91,5 +130,48 @@ tr:hover {
 
 .hover-row:hover td {
   background-color: #f0f0f1;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination-button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.page-numbers button {
+  background-color: #f1f1f1;
+  color: #444;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.page-numbers button.active-page {
+  background-color: #28a745;
+  color: white;
 }
 </style>
