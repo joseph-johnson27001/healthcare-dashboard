@@ -1,17 +1,17 @@
 <template>
-  <TableCard>
+  <ContainerCard>
     <FullDoctorTable :doctors="doctors" />
-  </TableCard>
+  </ContainerCard>
 </template>
 
 <script>
 import FullDoctorTable from "@/components/Tables/FullDoctorTable.vue";
-import TableCard from "@/components/UI/ContainerCard.vue";
+import ContainerCard from "@/components/UI/ContainerCard.vue";
 
 export default {
   components: {
     FullDoctorTable,
-    TableCard,
+    ContainerCard,
   },
   data() {
     return {

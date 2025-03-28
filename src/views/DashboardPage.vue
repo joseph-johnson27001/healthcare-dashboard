@@ -15,20 +15,20 @@
 
     <!-- Tables Section -->
     <div class="tables-section">
-      <TableCard>
+      <ContainerCard>
         <DoctorLocationTable :doctors="doctors" />
-      </TableCard>
+      </ContainerCard>
 
-      <TableCard>
+      <ContainerCard>
         <PatientAdmissionTable :patients="patients" />
-      </TableCard>
+      </ContainerCard>
     </div>
   </div>
 </template>
 
 <script>
 import KPICard from "@/components/UI/KPICard.vue";
-import TableCard from "@/components/UI/ContainerCard.vue";
+import ContainerCard from "@/components/UI/ContainerCard.vue";
 import PatientAdmissionTable from "@/components/Tables/PatientAdmissionTable.vue";
 import DoctorLocationTable from "@/components/Tables/DoctorLocationTable.vue";
 
@@ -36,7 +36,7 @@ export default {
   name: "DashboardPage",
   components: {
     KPICard,
-    TableCard,
+    ContainerCard,
     PatientAdmissionTable,
     DoctorLocationTable,
   },

@@ -8,9 +8,13 @@
       <li
         v-for="(item, index) in menuItems"
         :key="index"
-        :class="{ 'logout-item': item.name === 'logout' }"
+        :class="{
+          active: activeItem === item.name,
+          'logout-item': item.name === 'logout',
+        }"
+        @click="setActive(item.name)"
       >
-        <router-link :to="item.route" class="nav-link" active-class="active">
+        <router-link :to="item.route" class="sidebar-link">
           <div class="icon-container">
             <i :class="item.icon"></i>
           </div>
@@ -26,6 +30,7 @@ export default {
   name: "SideBar",
   data() {
     return {
+      activeItem: "dashboard",
       collapsed: false,
       menuItems: [
         {
@@ -92,6 +97,9 @@ export default {
     };
   },
   methods: {
+    setActive(item) {
+      this.activeItem = item;
+    },
     toggleCollapse() {
       this.collapsed = !this.collapsed;
     },
@@ -104,7 +112,7 @@ export default {
   width: 250px;
   color: rgba(47, 43, 61);
   min-height: 100vh;
-  padding: 20px 0px;
+  padding: 10px 0px;
   position: relative;
   z-index: 10;
   font-size: 15px;
@@ -139,6 +147,7 @@ export default {
 .sidebar-title i {
   cursor: pointer;
   font-size: 22px;
+  padding: 15px 10px;
 }
 
 .sidebar ul {
@@ -147,25 +156,31 @@ export default {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  margin-top: 0;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  align-items: center;
+.sidebar ul li {
   padding: 15px 10px;
+  cursor: pointer;
   border-radius: 5px;
   margin: 4px 7px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
   white-space: nowrap;
+  color: rgba(47, 43, 61, 0.9);
 }
 
-.nav-link:hover {
+.sidebar ul li.logout-item {
+  margin-top: auto;
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li:hover {
   background-color: #f0f0f1;
 }
 
-.nav-link.active {
+.sidebar ul li.active {
   background: #6685ff;
   color: white;
 }
@@ -175,26 +190,38 @@ export default {
   margin-left: 5px;
 }
 
-.nav-link i {
+.sidebar ul li i {
   font-size: 16px;
 }
 
-.sidebar.collapsed ul {
+.sidebar ul li.active i {
+  color: white;
+}
+
+.sidebar.collapsed ul li,
+.sidebar.collapsed .sidebar-title {
   justify-content: center;
 }
 
-.sidebar.collapsed .nav-link {
-  justify-content: center;
-}
-
-.sidebar.collapsed .nav-link span {
-  display: none;
-}
-
-.sidebar.collapsed .nav-link i {
+.sidebar.collapsed ul li i {
   margin: 0;
   padding: 10px;
   font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar.collapsed {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 700px) {
