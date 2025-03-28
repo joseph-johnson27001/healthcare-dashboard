@@ -9,7 +9,7 @@
         v-for="(item, index) in menuItems"
         :key="index"
         :class="{
-          active: activeItem === item.name,
+          active: isActive(item),
           'logout-item': item.name === 'logout',
         }"
         @click="navigateTo(item)"
@@ -30,7 +30,6 @@ export default {
   name: "SideBar",
   data() {
     return {
-      activeItem: "dashboard",
       collapsed: false,
       menuItems: [
         {
@@ -98,11 +97,13 @@ export default {
   },
   methods: {
     navigateTo(item) {
-      this.activeItem = item.name;
       this.$router.push(item.route);
     },
     toggleCollapse() {
       this.collapsed = !this.collapsed;
+    },
+    isActive(item) {
+      return this.$route.path === item.route;
     },
   },
 };
@@ -149,6 +150,7 @@ export default {
   cursor: pointer;
   font-size: 22px;
   padding: 15px 10px;
+  font-weight: 600;
 }
 
 .sidebar ul {

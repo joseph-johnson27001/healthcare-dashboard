@@ -16,11 +16,11 @@
     <!-- Tables Section -->
     <div class="tables-section">
       <ContainerCard>
-        <DoctorLocationTable :doctors="doctors" />
+        <PatientAdmissionTable :patients="patients" />
       </ContainerCard>
 
       <ContainerCard>
-        <PatientAdmissionTable :patients="patients" />
+        <DoctorLocationTable :doctors="doctors" />
       </ContainerCard>
     </div>
   </div>
