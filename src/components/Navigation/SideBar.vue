@@ -12,9 +12,9 @@
           active: activeItem === item.name,
           'logout-item': item.name === 'logout',
         }"
-        @click="setActive(item.name)"
+        @click="navigateTo(item)"
       >
-        <router-link :to="item.route" class="sidebar-link">
+        <router-link :to="item.route" class="sidebar-link" exact>
           <div class="icon-container">
             <i :class="item.icon"></i>
           </div>
@@ -97,8 +97,9 @@ export default {
     };
   },
   methods: {
-    setActive(item) {
-      this.activeItem = item;
+    navigateTo(item) {
+      this.activeItem = item.name;
+      this.$router.push(item.route);
     },
     toggleCollapse() {
       this.collapsed = !this.collapsed;
