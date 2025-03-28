@@ -28,7 +28,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  margin-top: 20px;
   overflow: hidden;
 }
 </style>

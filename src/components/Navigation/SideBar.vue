@@ -5,20 +5,20 @@
       <i class="fas fa-bars" @click="toggleCollapse"></i>
     </div>
     <ul>
-      <li
+      <router-link
         v-for="(item, index) in menuItems"
         :key="index"
-        :class="{
-          active: activeItem === item.name,
-          'logout-item': item.name === 'logout',
-        }"
-        @click="setActive(item.name)"
+        :to="item.route"
+        class="nav-link"
+        active-class="active"
       >
-        <div class="icon-container">
-          <i :class="item.icon"></i>
-        </div>
-        <span v-if="!collapsed">{{ item.label }}</span>
-      </li>
+        <li :class="{ 'logout-item': item.name === 'logout' }">
+          <div class="icon-container">
+            <i :class="item.icon"></i>
+          </div>
+          <span v-if="!collapsed">{{ item.label }}</span>
+        </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -28,42 +28,72 @@ export default {
   name: "SideBar",
   data() {
     return {
-      activeItem: "dashboard",
       collapsed: false,
       menuItems: [
-        { name: "dashboard", label: "Dashboard", icon: "fas fa-home" },
+        {
+          name: "dashboard",
+          label: "Dashboard",
+          icon: "fas fa-home",
+          route: "/",
+        },
         {
           name: "appointments",
           label: "Appointments",
           icon: "far fa-calendar-check",
+          route: "/appointments",
         },
-        { name: "patients", label: "Patients", icon: "fas fa-user-injured" },
-        { name: "doctors", label: "Doctors", icon: "fas fa-user-doctor" },
+        {
+          name: "patients",
+          label: "Patients",
+          icon: "fas fa-user-injured",
+          route: "/patients",
+        },
+        {
+          name: "doctors",
+          label: "Doctors",
+          icon: "fas fa-user-doctor",
+          route: "/doctors",
+        },
         {
           name: "medical-records",
           label: "Medical Records",
           icon: "fas fa-file-medical",
+          route: "/medical-records",
         },
-        { name: "prescriptions", label: "Prescriptions", icon: "fas fa-pills" },
+        {
+          name: "prescriptions",
+          label: "Prescriptions",
+          icon: "fas fa-pills",
+          route: "/prescriptions",
+        },
         {
           name: "billing",
           label: "Billing & Payments",
           icon: "fas fa-file-invoice-dollar",
+          route: "/billing",
         },
         {
           name: "reports",
           label: "Reports & Analytics",
           icon: "fas fa-chart-line",
+          route: "/reports",
         },
-        { name: "settings", label: "Settings", icon: "fas fa-cog" },
-        { name: "logout", label: "Logout", icon: "fas fa-sign-out-alt" },
+        {
+          name: "settings",
+          label: "Settings",
+          icon: "fas fa-cog",
+          route: "/settings",
+        },
+        {
+          name: "logout",
+          label: "Logout",
+          icon: "fas fa-sign-out-alt",
+          route: "/logout",
+        },
       ],
     };
   },
   methods: {
-    setActive(item) {
-      this.activeItem = item;
-    },
     toggleCollapse() {
       this.collapsed = !this.collapsed;
     },
@@ -121,7 +151,12 @@ export default {
   flex-direction: column;
 }
 
-.sidebar ul li {
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link li {
   padding: 15px 10px;
   cursor: pointer;
   border-radius: 5px;
@@ -133,16 +168,11 @@ export default {
   color: rgba(47, 43, 61, 0.9);
 }
 
-.sidebar ul li.logout-item {
-  margin-top: auto;
-  transition: color 0.3s ease;
-}
-
-.sidebar ul li:hover {
+.nav-link:hover li {
   background-color: #f0f0f1;
 }
 
-.sidebar ul li.active {
+.nav-link.router-link-active li {
   background: #6685ff;
   color: white;
 }
@@ -152,15 +182,11 @@ export default {
   margin-left: 5px;
 }
 
-.sidebar ul li i {
+.nav-link li i {
   font-size: 16px;
 }
 
-.sidebar ul li.active i {
-  color: white;
-}
-
-.sidebar.collapsed ul li,
+.sidebar.collapsed ul,
 .sidebar.collapsed .sidebar-title {
   justify-content: center;
 }
