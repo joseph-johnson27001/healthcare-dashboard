@@ -72,7 +72,7 @@ export default {
   data() {
     return {
       currentPage: 1,
-      itemsPerPage: 30,
+      itemsPerPage: 20,
       searchQuery: "",
     };
   },
