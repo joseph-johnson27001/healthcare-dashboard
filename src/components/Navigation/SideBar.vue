@@ -5,20 +5,18 @@
       <i class="fas fa-bars" @click="toggleCollapse"></i>
     </div>
     <ul>
-      <router-link
+      <li
         v-for="(item, index) in menuItems"
         :key="index"
-        :to="item.route"
-        class="nav-link"
-        active-class="active"
+        :class="{ 'logout-item': item.name === 'logout' }"
       >
-        <li :class="{ 'logout-item': item.name === 'logout' }">
+        <router-link :to="item.route" class="nav-link" active-class="active">
           <div class="icon-container">
             <i :class="item.icon"></i>
           </div>
           <span v-if="!collapsed">{{ item.label }}</span>
-        </li>
-      </router-link>
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
@@ -154,25 +152,20 @@ export default {
 .nav-link {
   text-decoration: none;
   color: inherit;
-}
-
-.nav-link li {
-  padding: 15px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 4px 7px;
   display: flex;
   align-items: center;
-  transition: background-color 0.3s ease;
+  padding: 15px 10px;
+  border-radius: 5px;
+  margin: 4px 7px;
+  transition: background-color 0.3s ease, color 0.3s ease;
   white-space: nowrap;
-  color: rgba(47, 43, 61, 0.9);
 }
 
-.nav-link:hover li {
+.nav-link:hover {
   background-color: #f0f0f1;
 }
 
-.nav-link.router-link-active li {
+.nav-link.active {
   background: #6685ff;
   color: white;
 }
@@ -182,16 +175,23 @@ export default {
   margin-left: 5px;
 }
 
-.nav-link li i {
+.nav-link i {
   font-size: 16px;
 }
 
-.sidebar.collapsed ul,
-.sidebar.collapsed .sidebar-title {
+.sidebar.collapsed ul {
   justify-content: center;
 }
 
-.sidebar.collapsed ul li i {
+.sidebar.collapsed .nav-link {
+  justify-content: center;
+}
+
+.sidebar.collapsed .nav-link span {
+  display: none;
+}
+
+.sidebar.collapsed .nav-link i {
   margin: 0;
   padding: 10px;
   font-size: 18px;
