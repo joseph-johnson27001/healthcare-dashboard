@@ -4,7 +4,6 @@
     <div class="main-content">
       <TopCard />
       <router-view />
-      <!-- This will render the active page -->
     </div>
   </div>
 </template>
