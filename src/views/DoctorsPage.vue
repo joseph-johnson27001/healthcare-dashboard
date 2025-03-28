@@ -6,7 +6,7 @@
 
 <script>
 import FullDoctorTable from "@/components/Tables/FullDoctorTable.vue";
-import TableCard from "@/components/UI/TableCard.vue";
+import TableCard from "@/components/UI/ContainerCard.vue";
 
 export default {
   components: {

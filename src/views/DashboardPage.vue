@@ -28,7 +28,7 @@
 
 <script>
 import KPICard from "@/components/UI/KPICard.vue";
-import TableCard from "@/components/UI/TableCard.vue";
+import TableCard from "@/components/UI/ContainerCard.vue";
 import PatientAdmissionTable from "@/components/Tables/PatientAdmissionTable.vue";
 import DoctorLocationTable from "@/components/Tables/DoctorLocationTable.vue";
 
