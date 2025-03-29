@@ -64,6 +64,8 @@ export default {
           icon: "fas fa-flask",
           name: "Pending Lab Results",
           value: "12",
+          iconColor: "#ffc107",
+          iconContainerColor: "rgba(255, 193, 7, 0.1)",
         },
         {
           icon: "fas fa-heartbeat",
@@ -90,8 +92,8 @@ export default {
           icon: "fas fa-users",
           name: "Patients in Queue",
           value: "15",
-          iconColor: "#28a745",
-          iconContainerColor: "rgba(40, 167, 69, 0.1)",
+          iconColor: "#007bff",
+          iconContainerColor: "rgba(0, 123, 255, 0.1)",
         },
       ],
       patients: [

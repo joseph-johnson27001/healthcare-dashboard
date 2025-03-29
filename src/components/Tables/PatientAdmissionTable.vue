@@ -166,7 +166,7 @@ td {
 }
 
 th {
-  background: rgba(50, 180, 120);
+  background: #6685ff;
   color: white;
   font-weight: 400;
   text-transform: uppercase;
@@ -217,7 +217,7 @@ tr:hover {
 }
 
 .page-numbers button.active-page {
-  background-color: #28a745;
+  background: #6685ff;
   color: white;
 }
 
