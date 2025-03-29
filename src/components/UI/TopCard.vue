@@ -1,10 +1,18 @@
 <template>
   <div class="top-card">
     <!-- Left Section (Add Patient Button) -->
-    <div class="add-patient">
-      <button class="add-patient-btn">
-        <i class="fas fa-user-plus"></i> Add Patient
-      </button>
+    <div class="button-container">
+      <div class="add-patient">
+        <button class="add-patient-btn">
+          <i class="fas fa-user-plus"></i> New Patient
+        </button>
+      </div>
+
+      <div class="add-appointment">
+        <button class="add-appointment-btn">
+          <i class="fas fa-calendar-plus"></i> New Appointment
+        </button>
+      </div>
     </div>
 
     <!-- Right Section (Icons & Profile) -->
@@ -43,7 +51,14 @@ export default {
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.add-patient-btn {
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.add-patient-btn,
+.add-appointment-btn {
   background: #6685ff;
   color: white;
   border: none;
@@ -56,7 +71,12 @@ export default {
   gap: 8px;
 }
 
-.add-patient-btn i {
+.add-appointment-btn {
+  background-color: rgba(50, 180, 120);
+}
+
+.add-patient-btn i,
+.add-appointment-btn i {
   font-size: 18px;
 }
 
