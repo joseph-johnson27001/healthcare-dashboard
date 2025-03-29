@@ -25,6 +25,7 @@
             v-for="(doctor, index) in paginatedDoctors"
             :key="index"
             :class="{ 'hover-row': true }"
+            @click="navigateToDoctor(doctor.id)"
           >
             <td>{{ doctor.id }}</td>
             <td>{{ doctor.name }}</td>
@@ -101,6 +102,9 @@ export default {
       if (pageNumber >= 1 && pageNumber <= this.totalPages) {
         this.currentPage = pageNumber;
       }
+    },
+    navigateToDoctor(id) {
+      this.$router.push("doctor" + id);
     },
   },
 };
