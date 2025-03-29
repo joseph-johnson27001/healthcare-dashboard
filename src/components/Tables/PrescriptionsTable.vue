@@ -79,11 +79,13 @@ export default {
       return this.prescriptions.filter((prescription) => {
         const searchTerm = this.searchQuery.toLowerCase();
         return (
-          prescription.id.toLowerCase().includes(searchTerm) ||
-          prescription.patientName.toLowerCase().includes(searchTerm) ||
-          prescription.doctor.toLowerCase().includes(searchTerm) ||
-          prescription.medication.toLowerCase().includes(searchTerm) ||
-          prescription.status.toLowerCase().includes(searchTerm)
+          (prescription.id?.toString().toLowerCase() || "").includes(
+            searchTerm
+          ) ||
+          (prescription.patient?.toLowerCase() || "").includes(searchTerm) ||
+          (prescription.doctor?.toLowerCase() || "").includes(searchTerm) ||
+          (prescription.medication?.toLowerCase() || "").includes(searchTerm) ||
+          (prescription.status?.toLowerCase() || "").includes(searchTerm)
         );
       });
     },
