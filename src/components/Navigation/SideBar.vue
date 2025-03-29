@@ -111,7 +111,7 @@ export default {
 
 <style scoped>
 .sidebar {
-  width: 240px;
+  width: 250px;
   color: rgba(47, 43, 61);
   min-height: 100vh;
   padding: 10px 0px;

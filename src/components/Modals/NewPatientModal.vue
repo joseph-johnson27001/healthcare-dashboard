@@ -216,8 +216,7 @@ export default {
 
 .form-group input,
 .form-group select,
-.form-group textarea,
-.form-group select {
+.form-group textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -236,9 +235,11 @@ export default {
   display: flex;
   gap: 15px;
 }
+
 .name-group {
   flex: 2;
 }
+
 .gender-group {
   flex: 1;
 }
@@ -306,5 +307,25 @@ textarea {
 
 .cancel-btn:hover {
   background: #ccc;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .name-group,
+  .gender-group,
+  .emergency-contact-name,
+  .emergency-contact-phone {
+    width: 100%;
+  }
+
+  .gender-group select,
+  #emergency-phone {
+    width: 100%;
+  }
 }
 </style>
