@@ -81,12 +81,6 @@ export default {
           route: "/reports",
         },
         {
-          name: "settings",
-          label: "Settings",
-          icon: "fas fa-cog",
-          route: "/settings",
-        },
-        {
           name: "logout",
           label: "Logout",
           icon: "fas fa-sign-out-alt",

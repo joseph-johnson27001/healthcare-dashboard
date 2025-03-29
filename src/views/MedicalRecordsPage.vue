@@ -36,7 +36,6 @@ export default {
   },
   data() {
     return {
-      // KPI Data
       kpis: [
         {
           icon: "fas fa-stethoscope",
@@ -78,9 +77,21 @@ export default {
           iconColor: "#007bff",
           iconContainerColor: "rgba(0, 123, 255, 0.1)",
         },
+        {
+          icon: "fas fa-heartbeat",
+          name: "Total Patients with Chronic Conditions",
+          value: "12,345",
+          iconColor: "#e74c3c",
+          iconContainerColor: "rgba(231, 76, 60, 0.1)",
+        },
+        {
+          icon: "fas fa-calendar-check",
+          name: "Upcoming Appointments",
+          value: "98",
+          iconColor: "#3498db",
+          iconContainerColor: "rgba(52, 152, 219, 0.1)",
+        },
       ],
-
-      // Medical Records Data
       medicalRecords: [
         {
           id: "MR001",
@@ -131,7 +142,7 @@ export default {
 <style scoped>
 .kpi-section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-top: 20px;
 }

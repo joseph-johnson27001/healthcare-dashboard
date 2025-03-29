@@ -9,7 +9,6 @@ import MedicalRecords from "@/views/MedicalRecordsPage.vue";
 import Prescriptions from "@/views/PrescriptionsPage.vue";
 import Billing from "@/views/BillingPage.vue";
 import Reports from "@/views/ReportsPage.vue";
-import Settings from "@/views/SettingsPage.vue";
 
 // Specific links
 
@@ -28,7 +27,6 @@ const routes = [
   { path: "/prescriptions", component: Prescriptions },
   { path: "/billing", component: Billing },
   { path: "/reports", component: Reports },
-  { path: "/settings", component: Settings },
 
   { path: "/doctor/:id", component: Doctor },
   { path: "/patient/:id", component: Patient },
