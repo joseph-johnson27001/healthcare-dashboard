@@ -107,7 +107,7 @@ export default {
       }
     },
     navigateToAppointment(id) {
-      this.$router.push("appointment" + id);
+      this.$router.push(`/appointment/${id}`);
     },
   },
 };

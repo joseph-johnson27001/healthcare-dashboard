@@ -104,7 +104,7 @@ export default {
       }
     },
     navigateToDoctor(id) {
-      this.$router.push("doctor" + id);
+      this.$router.push(`/doctor/${id}`);
     },
   },
 };

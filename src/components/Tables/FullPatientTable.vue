@@ -107,7 +107,7 @@ export default {
       }
     },
     navigateToPatient(id) {
-      this.$router.push("/patient" + id);
+      this.$router.push(`/patient/${id}`);
     },
   },
 };

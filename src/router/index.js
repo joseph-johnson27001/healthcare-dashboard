@@ -30,9 +30,9 @@ const routes = [
   { path: "/reports", component: Reports },
   { path: "/settings", component: Settings },
 
-  { path: "/doctor", compomnent: Doctor },
-  { path: "/patient", component: Patient },
-  { path: "/appointment", component: Appointment },
+  { path: "/doctor/:id", component: Doctor },
+  { path: "/patient/:id", component: Patient },
+  { path: "/appointment/:id", component: Appointment },
 
   { path: "/logout", component: Logout },
 ];
