@@ -184,9 +184,13 @@ export default {
 }
 
 .modal-header h2 {
-  font-size: 20px;
+  font-family: "Assistant", sans-serif;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
   color: #345a98;
-  font-weight: 400;
+  flex-shrink: 0;
 }
 
 .icon-container {

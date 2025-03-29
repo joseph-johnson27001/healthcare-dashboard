@@ -23,7 +23,10 @@
       </div>
 
       <div class="add-appointment">
-        <button class="add-appointment-btn">
+        <button
+          class="add-appointment-btn"
+          @click="showNewAppointmentModal = true"
+        >
           <i class="fas fa-calendar-plus"></i>
         </button>
       </div>
@@ -33,20 +36,29 @@
       v-if="showNewPatientModal"
       @close="showNewPatientModal = false"
     />
+
+    <!-- New Appointment Modal -->
+    <NewAppointmentModal
+      v-if="showNewAppointmentModal"
+      @close="showNewAppointmentModal = false"
+    />
   </div>
 </template>
 
 <script>
 import NewPatientModal from "@/components/Modals/NewPatientModal.vue";
+import NewAppointmentModal from "../Modals/NewAppointmentModal.vue";
 
 export default {
   name: "TopCard",
   components: {
     NewPatientModal,
+    NewAppointmentModal,
   },
   data() {
     return {
       showNewPatientModal: false,
+      showNewAppointmentModal: false,
     };
   },
 };
