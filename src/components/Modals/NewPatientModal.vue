@@ -147,42 +147,6 @@ export default {
 </script>
 
 <style scoped>
-/* Keep all original styles intact */
-
-/* Arrange Name & Gender on the same row */
-.form-row {
-  display: flex;
-  gap: 15px;
-}
-
-/* Name field takes most of the space */
-.name-group {
-  flex: 2;
-}
-
-/* Gender dropdown takes less space */
-.gender-group {
-  flex: 1;
-}
-
-.gender-group select {
-  width: 100%;
-}
-
-.emergency-contact-name,
-.emergency-contact-phone {
-  flex: 1;
-}
-
-.form-row .form-group {
-  width: 100%;
-}
-
-.emergency-contact-name input,
-.emergency-contact-phone input {
-  width: 100%;
-}
-
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -209,6 +173,7 @@ export default {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  font-family: "Assistant", sans-serif;
 }
 
 .modal-header {
@@ -221,6 +186,7 @@ export default {
 .modal-header h2 {
   font-size: 20px;
   color: #345a98;
+  font-weight: 400;
 }
 
 .icon-container {
@@ -244,8 +210,7 @@ export default {
 
 .form-group label {
   display: block;
-  font-weight: 500;
-  color: #222;
+  color: #345a98;
   margin-bottom: 5px;
 }
 
@@ -265,6 +230,35 @@ export default {
 
 ::placeholder {
   font-family: "Assistant", sans-serif;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+.name-group {
+  flex: 2;
+}
+.gender-group {
+  flex: 1;
+}
+
+.gender-group select {
+  width: 100%;
+}
+
+.emergency-contact-name,
+.emergency-contact-phone {
+  flex: 1;
+}
+
+.form-row .form-group {
+  width: 100%;
+}
+
+.emergency-contact-name input,
+.emergency-contact-phone input {
+  width: 100%;
 }
 
 textarea {

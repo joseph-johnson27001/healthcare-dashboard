@@ -18,13 +18,13 @@
     <div class="button-container">
       <div class="add-patient">
         <button class="add-patient-btn" @click="showNewPatientModal = true">
-          <i class="fas fa-user-plus"></i> New Patient
+          <i class="fas fa-user-plus"></i>
         </button>
       </div>
 
       <div class="add-appointment">
         <button class="add-appointment-btn">
-          <i class="fas fa-calendar-plus"></i> New Appointment
+          <i class="fas fa-calendar-plus"></i>
         </button>
       </div>
     </div>
@@ -76,12 +76,14 @@ export default {
   background: #6685ff;
   color: white;
   border: none;
-  padding: 10px 12px;
+  width: 40px;
+  height: 40px;
   font-size: 15px;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   outline: none;
 }
