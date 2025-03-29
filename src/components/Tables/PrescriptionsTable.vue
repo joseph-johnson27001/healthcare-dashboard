@@ -116,7 +116,7 @@ export default {
 .table-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .table-title {
