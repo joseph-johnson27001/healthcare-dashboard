@@ -26,6 +26,7 @@
             v-for="(appointment, index) in paginatedAppointments"
             :key="index"
             :class="{ 'hover-row': true }"
+            @click="navigateToAppointment(appointment.id)"
           >
             <td>{{ appointment.patient }}</td>
             <td>{{ appointment.doctor }}</td>
@@ -104,6 +105,9 @@ export default {
       if (pageNumber >= 1 && pageNumber <= this.totalPages) {
         this.currentPage = pageNumber;
       }
+    },
+    navigateToAppointment(id) {
+      this.$router.push("appointment" + id);
     },
   },
 };

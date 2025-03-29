@@ -11,10 +11,11 @@ import Billing from "@/views/BillingPage.vue";
 import Reports from "@/views/ReportsPage.vue";
 import Settings from "@/views/SettingsPage.vue";
 
-// Profile links
+// Specific links
 
 import Doctor from "@/views/DoctorProfilePage.vue";
 import Patient from "@/views/PatientProfilePage.vue";
+import Appointment from "@/views/AppointmentPage.vue";
 
 import Logout from "@/views/LogoutPage.vue";
 
@@ -31,6 +32,7 @@ const routes = [
 
   { path: "/doctor", compomnent: Doctor },
   { path: "/patient", component: Patient },
+  { path: "/appointment", component: Appointment },
 
   { path: "/logout", component: Logout },
 ];

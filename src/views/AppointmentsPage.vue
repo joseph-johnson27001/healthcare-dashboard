@@ -17,6 +17,7 @@ export default {
     return {
       appointments: [
         {
+          id: 1,
           doctor: "Dr. John Doe",
           patient: "Alice Johnson",
           date: "2025-04-01",
@@ -25,6 +26,7 @@ export default {
           room: "101",
         },
         {
+          id: 2,
           doctor: "Dr. Emily White",
           patient: "Bob Matthews",
           date: "2025-04-03",
@@ -33,6 +35,7 @@ export default {
           room: "202",
         },
         {
+          id: 3,
           doctor: "Dr. Michael Brown",
           patient: "Sarah Turner",
           date: "2025-04-05",
@@ -41,6 +44,7 @@ export default {
           room: "305",
         },
         {
+          id: 4,
           doctor: "Dr. Sarah Johnson",
           patient: "David Moore",
           date: "2025-04-06",
@@ -49,6 +53,7 @@ export default {
           room: "107",
         },
         {
+          id: 5,
           doctor: "Dr. Robert Adams",
           patient: "Linda Green",
           date: "2025-04-07",
@@ -57,6 +62,7 @@ export default {
           room: "203",
         },
         {
+          id: 6,
           doctor: "Dr. William Harris",
           patient: "James Carter",
           date: "2025-04-08",
@@ -65,6 +71,7 @@ export default {
           room: "404",
         },
         {
+          id: 7,
           doctor: "Dr. John Doe",
           patient: "Daniel Brown",
           date: "2025-04-10",
@@ -73,6 +80,7 @@ export default {
           room: "105",
         },
         {
+          id: 8,
           doctor: "Dr. Jessica Green",
           patient: "Emily White",
           date: "2025-04-11",
@@ -81,6 +89,7 @@ export default {
           room: "301",
         },
         {
+          id: 9,
           doctor: "Dr. David Lee",
           patient: "Michael Smith",
           date: "2025-04-12",
@@ -89,6 +98,7 @@ export default {
           room: "506",
         },
         {
+          id: 10,
           doctor: "Dr. Jane Smith",
           patient: "Olivia Davis",
           date: "2025-04-13",
@@ -97,6 +107,7 @@ export default {
           room: "208",
         },
         {
+          id: 11,
           doctor: "Dr. Robert Adams",
           patient: "Sophia Taylor",
           date: "2025-04-14",
@@ -105,6 +116,7 @@ export default {
           room: "109",
         },
         {
+          id: 12,
           doctor: "Dr. Emily White",
           patient: "Mason Clark",
           date: "2025-04-16",
@@ -113,6 +125,7 @@ export default {
           room: "310",
         },
         {
+          id: 13,
           doctor: "Dr. Sarah Johnson",
           patient: "Isabella Wilson",
           date: "2025-04-18",
@@ -121,6 +134,7 @@ export default {
           room: "112",
         },
         {
+          id: 14,
           doctor: "Dr. Michael Brown",
           patient: "Jackson Lee",
           date: "2025-04-19",
@@ -129,6 +143,7 @@ export default {
           room: "403",
         },
         {
+          id: 15,
           doctor: "Dr. William Harris",
           patient: "Henry Harris",
           date: "2025-04-20",
@@ -137,6 +152,7 @@ export default {
           room: "306",
         },
         {
+          id: 16,
           doctor: "Dr. Jessica Green",
           patient: "Charlotte Anderson",
           date: "2025-04-21",
@@ -145,6 +161,7 @@ export default {
           room: "501",
         },
         {
+          id: 17,
           doctor: "Dr. David Lee",
           patient: "Lucas Hall",
           date: "2025-04-22",
@@ -153,6 +170,7 @@ export default {
           room: "504",
         },
         {
+          id: 18,
           doctor: "Dr. Jane Smith",
           patient: "Amelia Young",
           date: "2025-04-24",
@@ -161,6 +179,7 @@ export default {
           room: "105",
         },
         {
+          id: 19,
           doctor: "Dr. Sarah Johnson",
           patient: "Elijah Martinez",
           date: "2025-04-26",
@@ -169,6 +188,7 @@ export default {
           room: "109",
         },
         {
+          id: 20,
           doctor: "Dr. Robert Adams",
           patient: "Benjamin Robinson",
           date: "2025-04-27",
@@ -176,108 +196,8 @@ export default {
           status: "Scheduled",
           room: "202",
         },
-        {
-          doctor: "Dr. Michael Brown",
-          patient: "Amos Moore",
-          date: "2025-04-28",
-          time: "10:30 AM",
-          status: "Finished",
-          room: "107",
-        },
-        {
-          doctor: "Dr. William Harris",
-          patient: "Zoey Allen",
-          date: "2025-04-29",
-          time: "4:00 PM",
-          status: "Scheduled",
-          room: "401",
-        },
-        {
-          doctor: "Dr. Jessica Green",
-          patient: "Leo Scott",
-          date: "2025-05-01",
-          time: "9:00 AM",
-          status: "Scheduled",
-          room: "202",
-        },
-        {
-          doctor: "Dr. David Lee",
-          patient: "Grace Perez",
-          date: "2025-05-03",
-          time: "10:00 AM",
-          status: "Scheduled",
-          room: "305",
-        },
-        {
-          doctor: "Dr. Sarah Johnson",
-          patient: "Oliver King",
-          date: "2025-05-05",
-          time: "11:30 AM",
-          status: "Finished",
-          room: "209",
-        },
-        {
-          doctor: "Dr. Michael Brown",
-          patient: "Amelia Turner",
-          date: "2025-05-06",
-          time: "2:30 PM",
-          status: "Scheduled",
-          room: "501",
-        },
-        {
-          doctor: "Dr. Robert Adams",
-          patient: "Ethan Adams",
-          date: "2025-05-08",
-          time: "3:00 PM",
-          status: "Scheduled",
-          room: "308",
-        },
-        {
-          doctor: "Dr. Emily White",
-          patient: "Jack Evans",
-          date: "2025-05-09",
-          time: "9:30 AM",
-          status: "Finished",
-          room: "103",
-        },
-        {
-          doctor: "Dr. John Doe",
-          patient: "Harper Taylor",
-          date: "2025-05-10",
-          time: "12:00 PM",
-          status: "Scheduled",
-          room: "104",
-        },
-        {
-          doctor: "Dr. Sarah Johnson",
-          patient: "Mia Lee",
-          date: "2025-05-11",
-          time: "1:45 PM",
-          status: "Scheduled",
-          room: "204",
-        },
-        {
-          doctor: "Dr. Jessica Green",
-          patient: "Samuel Thompson",
-          date: "2025-05-12",
-          time: "4:00 PM",
-          status: "Finished",
-          room: "305",
-        },
-        {
-          doctor: "Dr. William Harris",
-          patient: "Sophie Jackson",
-          date: "2025-05-14",
-          time: "10:30 AM",
-          status: "Scheduled",
-          room: "205",
-        },
       ],
     };
   },
 };
 </script>
-
-<style scoped>
-/* Styles for the page can go here if needed */
-</style>
