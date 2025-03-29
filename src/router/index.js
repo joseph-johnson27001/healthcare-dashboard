@@ -1,3 +1,5 @@
+//Sidebar Links
+
 import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "@/views/DashboardPage.vue";
 import Appointments from "@/views/AppointmentsPage.vue";
@@ -8,6 +10,12 @@ import Prescriptions from "@/views/PrescriptionsPage.vue";
 import Billing from "@/views/BillingPage.vue";
 import Reports from "@/views/ReportsPage.vue";
 import Settings from "@/views/SettingsPage.vue";
+
+// Profile links
+
+import Doctor from "@/views/DoctorProfilePage.vue";
+import Patient from "@/views/PatientProfilePage.vue";
+
 import Logout from "@/views/LogoutPage.vue";
 
 const routes = [
@@ -20,6 +28,10 @@ const routes = [
   { path: "/billing", component: Billing },
   { path: "/reports", component: Reports },
   { path: "/settings", component: Settings },
+
+  { path: "/doctor", compomnent: Doctor },
+  { path: "/patient", component: Patient },
+
   { path: "/logout", component: Logout },
 ];
 
