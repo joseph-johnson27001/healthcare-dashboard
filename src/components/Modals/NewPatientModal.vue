@@ -9,56 +9,34 @@
       </div>
 
       <form @submit.prevent="savePatient">
-        <!-- Full Name -->
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input
-            type="text"
-            id="name"
-            v-model="patient.name"
-            placeholder="Enter patient name"
-            required
-          />
+        <!-- Name & Gender Row -->
+        <div class="form-row">
+          <div class="form-group name-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              v-model="patient.name"
+              placeholder="Enter patient name"
+              required
+            />
+          </div>
+
+          <div class="form-group gender-group">
+            <label for="gender">Gender</label>
+            <select id="gender" v-model="patient.gender" required>
+              <option value="" disabled>Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
         </div>
 
         <!-- Date of Birth -->
         <div class="form-group">
           <label for="dob">Date of Birth</label>
           <input type="date" id="dob" v-model="patient.dob" required />
-        </div>
-
-        <!-- Gender Selection -->
-        <div class="form-group">
-          <label>Gender</label>
-          <div class="gender-options">
-            <label>
-              <input
-                type="radio"
-                v-model="patient.gender"
-                value="Male"
-                required
-              />
-              Male
-            </label>
-            <label>
-              <input
-                type="radio"
-                v-model="patient.gender"
-                value="Female"
-                required
-              />
-              Female
-            </label>
-            <label>
-              <input
-                type="radio"
-                v-model="patient.gender"
-                value="Other"
-                required
-              />
-              Other
-            </label>
-          </div>
         </div>
 
         <!-- Contact Number -->
@@ -84,20 +62,26 @@
           />
         </div>
 
-        <!-- Emergency Contact -->
-        <div class="form-group">
-          <label for="emergency-contact">Emergency Contact</label>
-          <input
-            type="text"
-            id="emergency-contact"
-            v-model="patient.emergencyContact"
-            placeholder="Enter emergency contact name"
-          />
-          <input
-            type="text"
-            v-model="patient.emergencyPhone"
-            placeholder="Enter emergency contact phone"
-          />
+        <!-- Emergency Contact Row -->
+        <div class="form-row">
+          <div class="form-group emergency-contact-name">
+            <label for="emergency-contact">Emergency Contact</label>
+            <input
+              type="text"
+              id="emergency-contact"
+              v-model="patient.emergencyContact"
+              placeholder="Enter emergency contact name"
+            />
+          </div>
+          <div class="form-group emergency-contact-phone">
+            <label for="emergency-phone">Emergency Phone</label>
+            <input
+              type="text"
+              id="emergency-phone"
+              v-model="patient.emergencyPhone"
+              placeholder="Enter emergency contact phone"
+            />
+          </div>
         </div>
 
         <!-- Department Selection -->
@@ -163,7 +147,42 @@ export default {
 </script>
 
 <style scoped>
-/* === Modal Overlay === */
+/* Keep all original styles intact */
+
+/* Arrange Name & Gender on the same row */
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+/* Name field takes most of the space */
+.name-group {
+  flex: 2;
+}
+
+/* Gender dropdown takes less space */
+.gender-group {
+  flex: 1;
+}
+
+.gender-group select {
+  width: 100%;
+}
+
+.emergency-contact-name,
+.emergency-contact-phone {
+  flex: 1;
+}
+
+.form-row .form-group {
+  width: 100%;
+}
+
+.emergency-contact-name input,
+.emergency-contact-phone input {
+  width: 100%;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -177,7 +196,6 @@ export default {
   z-index: 1000;
 }
 
-/* === Modal Content === */
 .modal-content {
   background: white;
   padding: 20px;
@@ -188,10 +206,11 @@ export default {
   max-width: 1200px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 4px 8px -2px,
     rgba(0, 0, 0, 0.3) 0px 2px 4px -2px;
+  display: flex;
+  flex-direction: column;
   overflow-y: scroll;
 }
 
-/* === Modal Header === */
 .modal-header {
   display: flex;
   align-items: center;
@@ -204,7 +223,6 @@ export default {
   color: #345a98;
 }
 
-/* === Icon Container === */
 .icon-container {
   display: flex;
   justify-content: center;
@@ -220,7 +238,6 @@ export default {
   color: #28c76f;
 }
 
-/* === Form Styling === */
 .form-group {
   margin-bottom: 15px;
 }
@@ -234,18 +251,24 @@ export default {
 
 .form-group input,
 .form-group select,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 14px;
   box-sizing: border-box;
+  font-family: "Assistant", sans-serif;
   outline: none;
 }
 
+::placeholder {
+  font-family: "Assistant", sans-serif;
+}
+
 textarea {
-  height: 80px;
+  height: 150px;
   resize: none;
 }
 
@@ -253,17 +276,14 @@ textarea {
   margin-bottom: 10px;
 }
 
-/* === Gender Options === */
 .gender-options {
   display: flex;
   gap: 15px;
 }
 
-/* === Buttons === */
 .form-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
 }
 
 .save-btn {
