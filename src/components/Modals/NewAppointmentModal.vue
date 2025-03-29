@@ -171,13 +171,13 @@ export default {
   align-items: center;
   width: 40px;
   height: 40px;
-  background-color: rgba(39, 148, 97, 0.1);
+  background-color: rgba(0, 123, 255, 0.1);
   border-radius: 4px;
 }
 
 .icon-container i {
   font-size: 20px;
-  color: #28c76f;
+  color: #007bff;
 }
 
 .form-group {
