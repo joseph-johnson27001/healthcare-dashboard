@@ -17,7 +17,7 @@
     <!-- Right Section (Add Buttons) -->
     <div class="button-container">
       <div class="add-patient">
-        <button class="add-patient-btn">
+        <button class="add-patient-btn" @click="showNewPatientModal = true">
           <i class="fas fa-user-plus"></i> New Patient
         </button>
       </div>
@@ -28,12 +28,27 @@
         </button>
       </div>
     </div>
+    <!-- New Patient Modal -->
+    <NewPatientModal
+      v-if="showNewPatientModal"
+      @close="showNewPatientModal = false"
+    />
   </div>
 </template>
 
 <script>
+import NewPatientModal from "@/components/Modals/NewPatientModal.vue";
+
 export default {
   name: "TopCard",
+  components: {
+    NewPatientModal,
+  },
+  data() {
+    return {
+      showNewPatientModal: false,
+    };
+  },
 };
 </script>
 
@@ -68,6 +83,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 8px;
+  outline: none;
 }
 
 .add-appointment-btn {
