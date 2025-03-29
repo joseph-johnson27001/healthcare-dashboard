@@ -76,7 +76,7 @@ export default {
 
 .add-patient-btn i,
 .add-appointment-btn i {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .icon-area {
@@ -86,7 +86,7 @@ export default {
 }
 
 .icon-area i {
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
   color: #333;
   position: relative;
