@@ -193,6 +193,10 @@ export default {
   margin-left: 5px;
 }
 
+.sidebar.collapsed .icon-container {
+  margin: 0;
+}
+
 .sidebar ul li i {
   font-size: 16px;
 }
