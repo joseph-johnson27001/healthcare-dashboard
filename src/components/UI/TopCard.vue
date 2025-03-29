@@ -1,6 +1,20 @@
 <template>
   <div class="top-card">
-    <!-- Left Section (Add Patient Button) -->
+    <!-- Left Section (Icons & Profile) -->
+    <div class="icon-area">
+      <!-- Profile Image with Online Indicator -->
+      <div class="profile">
+        <img src="https://randomuser.me/api/portraits/women/8.jpg" alt="User" />
+        <span class="online-indicator"></span>
+      </div>
+      <i class="far fa-bell notification-icon">
+        <span class="notification-dot"></span>
+      </i>
+      <i class="far fa-calendar-check"></i>
+      <i class="far fa-comment-alt"></i>
+    </div>
+
+    <!-- Right Section (Add Buttons) -->
     <div class="button-container">
       <div class="add-patient">
         <button class="add-patient-btn">
@@ -12,21 +26,6 @@
         <button class="add-appointment-btn">
           <i class="fas fa-calendar-plus"></i> New Appointment
         </button>
-      </div>
-    </div>
-
-    <!-- Right Section (Icons & Profile) -->
-    <div class="icon-area">
-      <i class="far fa-calendar-check"></i>
-      <i class="far fa-comment-alt"></i>
-      <i class="far fa-bell notification-icon">
-        <span class="notification-dot"></span>
-      </i>
-
-      <!-- Profile Image with Online Indicator -->
-      <div class="profile">
-        <img src="https://randomuser.me/api/portraits/women/8.jpg" alt="User" />
-        <span class="online-indicator"></span>
       </div>
     </div>
   </div>
