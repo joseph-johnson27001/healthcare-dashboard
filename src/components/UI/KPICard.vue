@@ -82,6 +82,10 @@ export default {
   font-size: 20px;
 }
 
+.kpi-name {
+  margin-right: 5px;
+}
+
 .value {
   font-size: 16px;
   font-weight: 500;

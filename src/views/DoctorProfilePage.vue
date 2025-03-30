@@ -14,7 +14,7 @@
             <h1 class="doctor-name">{{ doctor.name }}</h1>
             <p><strong>Specialty:</strong> {{ doctor.specialty }}</p>
             <p>
-              <strong>Current Location:</strong>
+              <strong>Location:</strong>
               {{ doctor.currentLocation }}
             </p>
             <p class="status">
@@ -82,7 +82,7 @@
 <style scoped>
 .doctor-header-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 2fr 1fr;
   gap: 20px;
 }
 
@@ -107,7 +107,11 @@
 
 .doctor-info p,
 .doctor-info h1 {
-  margin: 5px 0;
+  margin: 6px 0;
+}
+
+.doctor-name {
+  font-weight: 400;
 }
 
 .status {
@@ -184,13 +188,13 @@ strong {
   border: 1px solid #e0e7ff;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .kpi-section {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .kpi-section {
     grid-template-columns: 1fr;
   }
@@ -600,7 +604,7 @@ export default {
           iconContainerColor: "rgba(220, 53, 69, 0.1)",
         },
       ];
-      this.doctor.existingNotes = `${this.doctor.name} is currently undergoing advanced training in minimally invasive surgery techniques. The training is expected to enhance his surgical precision and reduce recovery times for patients.`;
+      this.doctor.existingNotes = `- ${this.doctor.name} is currently undergoing advanced training in minimally invasive surgery techniques. The training is expected to enhance his surgical precision and reduce recovery times for patients.`;
     }
   },
 };

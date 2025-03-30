@@ -74,7 +74,7 @@ export default {
     return {
       searchQuery: "",
       currentPage: 1,
-      itemsPerPage: 20,
+      itemsPerPage: 10,
     };
   },
   computed: {
