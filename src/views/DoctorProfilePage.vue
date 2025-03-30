@@ -17,12 +17,6 @@
               <strong>Location:</strong>
               {{ doctor.currentLocation }}
             </p>
-            <p class="status">
-              <strong>Status: </strong>
-              <span :class="doctor.status.toLowerCase()">
-                {{ doctor.status }}
-              </span>
-            </p>
           </div>
         </div>
       </ContainerCard>
@@ -73,6 +67,10 @@
             rows="6"
             class="notes-textarea"
           ></textarea>
+          <!-- Add button for adding the note -->
+          <div class="button-container">
+            <button @click="addNote" class="add-note-button">Add Note</button>
+          </div>
         </div>
       </ContainerCard>
     </div>
@@ -150,6 +148,28 @@
   resize: none;
   outline: none;
   font-family: "Assistant", sans-serif;
+}
+
+.button-container {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-note-button {
+  background-color: #345a98;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.add-note-button:hover {
+  background-color: #2c4a79;
 }
 
 strong {
