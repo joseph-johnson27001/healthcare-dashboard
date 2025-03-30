@@ -157,7 +157,7 @@ export default {
 }
 
 .sidebar ul li {
-  padding: 15px 10px;
+  padding: 15px;
   cursor: pointer;
   border-radius: 5px;
   margin: 4px 7px;
@@ -184,7 +184,8 @@ export default {
 
 .icon-container {
   margin-right: 10px;
-  margin-left: 5px;
+  width: 20px;
+  height: 20px;
 }
 
 .sidebar.collapsed .icon-container {
@@ -223,6 +224,14 @@ export default {
   color: inherit;
   display: flex;
   align-items: center;
+}
+
+.sidebar.collapsed .icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
 }
 
 @media (max-width: 700px) {
