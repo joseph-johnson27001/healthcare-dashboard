@@ -1,60 +1,118 @@
 <template>
   <div class="doctor-profile">
-    <div v-if="doctor" class="doctor-card">
-      <!-- Doctor Header Section -->
-      <div class="doctor-header-container">
-        <ContainerCard>
-          <div class="doctor-header">
-            <div>
-              <img
-                v-if="doctor.profilePicture"
-                :src="doctor.profilePicture"
-                alt="Doctor Profile"
-                class="profile-pic"
-              />
-              <div class="doctor-info">
-                <h1 class="doctor-name">{{ doctor.name }}</h1>
-                <p><strong>Specialty:</strong> {{ doctor.specialty }}</p>
-                <p>
-                  <strong>Current Location:</strong>
-                  {{ doctor.currentLocation }}
-                </p>
-                <p class="status" :class="doctor.status.toLowerCase()">
-                  <strong>Status:</strong> {{ doctor.status }}
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-credentials">
-              <p><strong>Phone:</strong> {{ doctor.contact.phone }}</p>
-              <p><strong>Email:</strong> {{ doctor.contact.email }}</p>
-              <p><strong>Experience:</strong> {{ doctor.experience }} years</p>
-              <p><strong>Medical License:</strong> {{ doctor.license }}</p>
-              <p><strong>Education:</strong> {{ doctor.education }}</p>
-            </div>
+    <!-- Doctor Header Section -->
+    <div class="doctor-header-container">
+      <ContainerCard>
+        <div class="doctor-header">
+          <img
+            v-if="doctor.profilePicture"
+            :src="doctor.profilePicture"
+            alt="Doctor Profile"
+            class="profile-pic"
+          />
+          <div class="doctor-info">
+            <h1 class="doctor-name">{{ doctor.name }}</h1>
+            <p><strong>Specialty:</strong> {{ doctor.specialty }}</p>
+            <p>
+              <strong>Current Location:</strong>
+              {{ doctor.currentLocation }}
+            </p>
+            <p class="status" :class="doctor.status.toLowerCase()">
+              <strong>Status:</strong> {{ doctor.status }}
+            </p>
           </div>
-        </ContainerCard>
-      </div>
+        </div>
+      </ContainerCard>
 
-      <!-- KPI Cards -->
-      <div class="kpi-section">
-        <KPICard
-          v-for="(kpi, index) in kpis"
-          :key="index"
-          :iconClass="kpi.icon"
-          :kpiName="kpi.name"
-          :value="kpi.value"
-          :iconColor="kpi.iconColor"
-          :iconContainerColor="kpi.iconContainerColor"
-        />
-      </div>
+      <ContainerCard>
+        <div class="contact-credentials">
+          <p><strong>Phone:</strong> {{ doctor.contact.phone }}</p>
+          <p><strong>Email:</strong> {{ doctor.contact.email }}</p>
+          <p><strong>Experience:</strong> {{ doctor.experience }} years</p>
+          <p><strong>Medical License:</strong> {{ doctor.license }}</p>
+          <p><strong>Education:</strong> {{ doctor.education }}</p>
+        </div>
+      </ContainerCard>
     </div>
 
-    <div v-else class="error-message">
-      <p>Doctor not found.</p>
+    <!-- KPI Cards -->
+    <div class="kpi-section">
+      <KPICard
+        v-for="(kpi, index) in kpis"
+        :key="index"
+        :iconClass="kpi.icon"
+        :kpiName="kpi.name"
+        :value="kpi.value"
+        :iconColor="kpi.iconColor"
+        :iconContainerColor="kpi.iconContainerColor"
+      />
     </div>
   </div>
 </template>
+<style scoped>
+.doctor-header-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.doctor-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.doctor-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.available {
+  color: #28c76f;
+  background: rgba(39, 148, 97, 0.1);
+}
+
+.unavailable {
+  color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.1);
+}
+
+.kpi-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+  .kpi-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .kpi-section {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
 <script>
 import KPICard from "@/components/UI/KPICard.vue";
 import ContainerCard from "@/components/UI/ContainerCard.vue";
@@ -69,7 +127,6 @@ export default {
     return {
       doctor: null,
       kpis: [],
-
       doctors: [
         {
           id: "D001",
@@ -454,65 +511,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.doctor-header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.doctor-info {
-  flex-grow: 1;
-}
-
-.doctor-header-container {
-  margin-bottom: 20px;
-}
-
-.status {
-  padding: 5px 10px;
-  border-radius: 5px;
-  display: inline-block;
-}
-
-.available {
-  color: #28c76f;
-  background: rgba(39, 148, 97, 0.1);
-}
-
-.unavailable {
-  color: #ff4d4d;
-  background: rgba(255, 77, 77, 0.1);
-}
-
-.contact-credentials {
-  margin-top: 20px;
-}
-
-.kpi-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-}
-
-@media (max-width: 800px) {
-  .kpi-section {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 500px) {
-  .kpi-section {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
