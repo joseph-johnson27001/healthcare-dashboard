@@ -17,8 +17,11 @@
               <strong>Current Location:</strong>
               {{ doctor.currentLocation }}
             </p>
-            <p class="status" :class="doctor.status.toLowerCase()">
-              <strong>Status:</strong> {{ doctor.status }}
+            <p class="status">
+              <strong>Status: </strong>
+              <span :class="doctor.status.toLowerCase()">
+                {{ doctor.status }}
+              </span>
             </p>
           </div>
         </div>
@@ -30,7 +33,6 @@
           <p><strong>Email:</strong> {{ doctor.contact.email }}</p>
           <p><strong>Experience:</strong> {{ doctor.experience }} years</p>
           <p><strong>Medical License:</strong> {{ doctor.license }}</p>
-          <p><strong>Education:</strong> {{ doctor.education }}</p>
         </div>
       </ContainerCard>
     </div>
@@ -47,14 +49,41 @@
         :iconContainerColor="kpi.iconContainerColor"
       />
     </div>
+
+    <!-- Existing Notes Section -->
+    <div class="notes-container">
+      <ContainerCard>
+        <div class="notes-header">Doctor's Notes</div>
+        <div class="existing-notes-section">
+          <p class="notes-content">
+            {{ doctor.existingNotes || "No notes available." }}
+          </p>
+        </div>
+      </ContainerCard>
+    </div>
+
+    <!-- Notes Section (for adding new notes) -->
+    <div class="notes-container">
+      <ContainerCard>
+        <div class="notes-section">
+          <div class="notes-header">Add New Notes</div>
+          <textarea
+            v-model="doctor.notes"
+            placeholder="Enter any important notes here..."
+            rows="6"
+            class="notes-textarea"
+          ></textarea>
+        </div>
+      </ContainerCard>
+    </div>
   </div>
 </template>
+
 <style scoped>
 .doctor-header-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .doctor-header {
@@ -72,25 +101,26 @@
 }
 
 .doctor-info {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
+.doctor-info p,
+.doctor-info h1 {
+  margin: 8px 0;
+}
+
 .status {
-  padding: 5px 10px;
   border-radius: 5px;
   display: inline-block;
 }
 
 .available {
   color: #28c76f;
-  background: rgba(39, 148, 97, 0.1);
 }
 
 .unavailable {
   color: #ff4d4d;
-  background: rgba(255, 77, 77, 0.1);
 }
 
 .kpi-section {
@@ -98,6 +128,51 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.notes-container {
+  margin-bottom: 20px;
+}
+
+.notes-textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+  outline: none;
+  font-family: "Assistant", sans-serif;
+}
+
+.notes-header {
+  font-family: "Assistant", sans-serif;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #345a98;
+  margin-bottom: 10px;
+}
+
+.notes-textarea::placeholder {
+  font-family: "Assistant";
+  color: #888;
+}
+
+.existing-notes-section .notes-content {
+  font-size: 16px;
+  color: #333;
+}
+
+.existing-notes-section {
+  padding: 10px;
+  background-color: #f4f7fc;
+  border-radius: 5px;
+  border: 1px solid #e0e7ff;
 }
 
 @media (max-width: 800px) {
@@ -473,7 +548,6 @@ export default {
   created() {
     const doctorId = this.$route.params.id;
     this.doctor = this.doctors.find((doc) => doc.id === doctorId);
-
     if (this.doctor) {
       this.kpis = [
         {
@@ -485,28 +559,39 @@ export default {
           icon: "fas fa-clock",
           name: "Avg. Consultation Time",
           value: "25 min",
+          iconColor: "#ffc107",
+          iconContainerColor: "rgba(255, 193, 7, 0.1)",
         },
         {
           icon: "fas fa-calendar-check",
           name: "Appointments This Month",
           value: "120",
+          iconColor: "#007bff",
+          iconContainerColor: "rgba(0, 123, 255, 0.1)",
         },
         {
           icon: "fas fa-stethoscope",
           name: "Most Treated Condition",
           value: "Hypertension",
+          iconColor: "#ff9800",
+          iconContainerColor: "rgba(255, 152, 0, 0.1)",
         },
         {
           icon: "fas fa-heartbeat",
           name: "Treatment Success Rate",
           value: "95%",
+          iconColor: "#4caf50",
+          iconContainerColor: "rgba(76, 175, 80, 0.1)",
         },
         {
           icon: "fas fa-notes-medical",
           name: "Upcoming Appointments",
           value: "8",
+          iconColor: "#dc3545",
+          iconContainerColor: "rgba(220, 53, 69, 0.1)",
         },
       ];
+      this.doctor.existingNotes = `${this.doctor.name} is currently undergoing advanced training in minimally invasive surgery techniques. The training is expected to enhance his surgical precision and reduce recovery times for patients.`;
     }
   },
 };

@@ -6,17 +6,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      required: false,
-    },
-  },
-};
-</script>
-
 <style scoped>
 .card {
   background: white;
