@@ -107,7 +107,7 @@
 
 .doctor-info p,
 .doctor-info h1 {
-  margin: 8px 0;
+  margin: 5px 0;
 }
 
 .status {
@@ -128,11 +128,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .notes-container {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .notes-textarea {
@@ -146,6 +146,15 @@
   resize: none;
   outline: none;
   font-family: "Assistant", sans-serif;
+}
+
+strong {
+  font-family: "Assistant", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #345a98;
+  margin-bottom: 10px;
+  margin-right: 2px;
 }
 
 .notes-header {
