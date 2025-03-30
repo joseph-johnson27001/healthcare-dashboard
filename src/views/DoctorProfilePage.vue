@@ -17,6 +17,7 @@
               <strong>Location:</strong>
               {{ doctor.currentLocation }}
             </p>
+            <p><strong>Medical License:</strong> {{ doctor.license }}</p>
           </div>
         </div>
       </ContainerCard>
@@ -26,7 +27,7 @@
           <p><strong>Phone:</strong> {{ doctor.contact.phone }}</p>
           <p><strong>Email:</strong> {{ doctor.contact.email }}</p>
           <p><strong>Experience:</strong> {{ doctor.experience }} years</p>
-          <p><strong>Medical License:</strong> {{ doctor.license }}</p>
+          <p><strong>Education:</strong> {{ doctor.education }}</p>
         </div>
       </ContainerCard>
     </div>
@@ -63,14 +64,13 @@
     <div class="notes-container">
       <ContainerCard>
         <div class="notes-section">
-          <div class="notes-header">Add New Notes</div>
+          <div class="notes-header">Add New Note</div>
           <textarea
             v-model="doctor.notes"
             placeholder="Enter any important notes here..."
             rows="6"
             class="notes-textarea"
           ></textarea>
-          <!-- Add button for adding the note -->
           <div class="button-container">
             <button @click="addNote" class="add-note-button">Add Note</button>
           </div>
@@ -133,11 +133,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .notes-container {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .notes-textarea {
