@@ -49,9 +49,12 @@
       <ContainerCard>
         <div class="notes-header">Doctor's Notes</div>
         <div class="existing-notes-section">
-          <p class="notes-content">
-            {{ doctor.existingNotes || "No notes available." }}
-          </p>
+          <ul>
+            <!-- Loop through the existing notes and display each with a dash -->
+            <li v-for="(note, index) in doctor.existingNotes" :key="index">
+              - {{ note }}
+            </li>
+          </ul>
         </div>
       </ContainerCard>
     </div>
@@ -206,6 +209,12 @@ strong {
   background-color: #f4f7fc;
   border-radius: 5px;
   border: 1px solid #e0e7ff;
+}
+
+li {
+  list-style: none;
+  margin-left: -30px;
+  margin-top: 5px;
 }
 
 @media (max-width: 1000px) {
@@ -578,6 +587,14 @@ export default {
       ],
     };
   },
+  methods: {
+    addNote() {
+      if (this.doctor.notes.trim() !== "") {
+        this.doctor.existingNotes.push(this.doctor.notes);
+        this.doctor.notes = "";
+      }
+    },
+  },
   created() {
     const doctorId = this.$route.params.id;
     this.doctor = this.doctors.find((doc) => doc.id === doctorId);
@@ -624,7 +641,9 @@ export default {
           iconContainerColor: "rgba(220, 53, 69, 0.1)",
         },
       ];
-      this.doctor.existingNotes = `- ${this.doctor.name} is currently undergoing advanced training in minimally invasive surgery techniques. The training is expected to enhance his surgical precision and reduce recovery times for patients.`;
+      this.doctor.existingNotes = [
+        "Dr. John Doe is currently undergoing advanced training in minimally invasive surgery techniques. The training is expected to enhance his surgical precision and reduce recovery times for patients.",
+      ];
     }
   },
 };
