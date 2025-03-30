@@ -70,6 +70,14 @@ td {
   background-color: #ffffff;
 }
 
+tr {
+  cursor: pointer;
+}
+
+th {
+  cursor: auto;
+}
+
 tr:nth-child(even) td {
   background-color: #f9f9f9;
 }
