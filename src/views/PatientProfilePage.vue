@@ -65,7 +65,7 @@
 <style scoped>
 .patient-header-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
