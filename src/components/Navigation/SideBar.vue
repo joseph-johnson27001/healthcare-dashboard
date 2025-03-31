@@ -69,12 +69,6 @@ export default {
           route: "/prescriptions",
         },
         {
-          name: "billing",
-          label: "Billing & Payments",
-          icon: "fas fa-file-invoice-dollar",
-          route: "/billing",
-        },
-        {
           name: "reports",
           label: "Reports & Analytics",
           icon: "fas fa-chart-line",
@@ -91,6 +85,10 @@ export default {
   },
   methods: {
     navigateTo(item) {
+      if (item.name === "logout") {
+        return;
+      }
+
       this.$router.push(item.route);
     },
     toggleCollapse() {
