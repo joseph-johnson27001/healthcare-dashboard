@@ -77,6 +77,7 @@ export default {
   computed: {
     filteredPrescriptions() {
       return this.prescriptions.filter((prescription) => {
+        this.currentPage = 1;
         const searchTerm = this.searchQuery.toLowerCase();
         return (
           (prescription.id?.toString().toLowerCase() || "").includes(

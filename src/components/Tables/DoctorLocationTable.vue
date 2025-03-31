@@ -78,6 +78,7 @@ export default {
   computed: {
     filteredDoctors() {
       return this.doctors.filter((doctor) => {
+        this.currentPage = 1;
         const searchTerm = this.searchQuery.toLowerCase();
         return (
           doctor.id.toLowerCase().includes(searchTerm) ||

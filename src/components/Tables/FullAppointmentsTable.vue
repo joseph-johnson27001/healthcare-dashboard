@@ -80,6 +80,7 @@ export default {
   computed: {
     filteredAppointments() {
       return this.appointments.filter((appointment) => {
+        this.currentPage = 1;
         const searchTerm = this.searchQuery.toLowerCase();
         return (
           appointment.doctor.toLowerCase().includes(searchTerm) ||

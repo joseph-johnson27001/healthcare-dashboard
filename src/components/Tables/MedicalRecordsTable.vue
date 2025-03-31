@@ -80,6 +80,7 @@ export default {
   computed: {
     filteredRecords() {
       return this.records.filter((record) => {
+        this.currentPage = 1;
         const searchTerm = this.searchQuery.toLowerCase();
         return (
           (record.id && record.id.toLowerCase().includes(searchTerm)) ||
@@ -221,7 +222,7 @@ tr:hover {
 }
 
 .page-numbers button.active-page {
-  background-color: #6685ff;
+  background: rgba(50, 180, 120);
   color: white;
 }
 

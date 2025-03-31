@@ -80,6 +80,7 @@ export default {
   computed: {
     filteredPatients() {
       return this.patients.filter((patient) => {
+        this.currentPage = 1;
         const searchTerm = this.searchQuery.toLowerCase();
         return (
           patient.id.toLowerCase().includes(searchTerm) ||
