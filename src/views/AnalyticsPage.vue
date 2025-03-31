@@ -5,9 +5,13 @@
         <PatientAdmissionsGraph />
       </ContainerCard>
 
-      <ContainerCard> </ContainerCard>
+      <ContainerCard>
+        <DepartmentVolumeGraph />
+      </ContainerCard>
 
-      <ContainerCard> </ContainerCard>
+      <ContainerCard>
+        <AverageStayLengthGraph />
+      </ContainerCard>
 
       <ContainerCard> </ContainerCard>
     </div>
@@ -17,11 +21,15 @@
 <script>
 import ContainerCard from "@/components/UI/ContainerCard.vue";
 import PatientAdmissionsGraph from "@/components/Graphs/PatientAdmissionsGraph.vue";
+import DepartmentVolumeGraph from "@/components/Graphs/DepartmentVolumeGraph.vue";
+import AverageStayLengthGraph from "@/components/Graphs/AverageStayLengthGraph.vue";
 
 export default {
   components: {
     ContainerCard,
     PatientAdmissionsGraph,
+    DepartmentVolumeGraph,
+    AverageStayLengthGraph,
   },
 };
 </script>
@@ -41,5 +49,11 @@ select {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   row-gap: 20px;
+}
+
+@media (max-width: 1000px) {
+  .graphs-section {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
