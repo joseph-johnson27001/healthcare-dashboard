@@ -69,10 +69,10 @@ export default {
           route: "/prescriptions",
         },
         {
-          name: "reports",
-          label: "Reports & Analytics",
+          name: "analytics",
+          label: "Analytics",
           icon: "fas fa-chart-line",
-          route: "/reports",
+          route: "/analytics",
         },
         {
           name: "logout",

@@ -7,7 +7,7 @@ import Patients from "@/views/PatientsPage.vue";
 import Doctors from "@/views/DoctorsPage.vue";
 import MedicalRecords from "@/views/MedicalRecordsPage.vue";
 import Prescriptions from "@/views/PrescriptionsPage.vue";
-import Reports from "@/views/ReportsPage.vue";
+import Analytics from "@/views/AnalyticsPage.vue";
 
 // Specific links
 
@@ -22,7 +22,7 @@ const routes = [
   { path: "/doctors", component: Doctors },
   { path: "/medical-records", component: MedicalRecords },
   { path: "/prescriptions", component: Prescriptions },
-  { path: "/reports", component: Reports },
+  { path: "/analytics", component: Analytics },
   { path: "/doctor/:id", component: Doctor },
   { path: "/patient/:id", component: Patient },
   { path: "/appointment/:id", component: Appointment },
