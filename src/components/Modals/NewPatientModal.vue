@@ -165,7 +165,7 @@ export default {
   padding: 20px;
   border-radius: 8px;
   width: 100%;
-  height: 90%;
+  max-height: 90%;
   margin: 20px;
   max-width: 1200px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 4px 8px -2px,
