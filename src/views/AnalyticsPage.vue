@@ -13,7 +13,9 @@
         <AverageStayLengthGraph />
       </ContainerCard>
 
-      <ContainerCard> </ContainerCard>
+      <ContainerCard>
+        <EmergencyRoomWaitTimeGraph />
+      </ContainerCard>
     </div>
   </div>
 </template>
@@ -23,6 +25,7 @@ import ContainerCard from "@/components/UI/ContainerCard.vue";
 import PatientAdmissionsGraph from "@/components/Graphs/PatientAdmissionsGraph.vue";
 import DepartmentVolumeGraph from "@/components/Graphs/DepartmentVolumeGraph.vue";
 import AverageStayLengthGraph from "@/components/Graphs/AverageStayLengthGraph.vue";
+import EmergencyRoomWaitTimeGraph from "@/components/Graphs/EmergencyRoomWaitTimeGraph.vue";
 
 export default {
   components: {
@@ -30,6 +33,7 @@ export default {
     PatientAdmissionsGraph,
     DepartmentVolumeGraph,
     AverageStayLengthGraph,
+    EmergencyRoomWaitTimeGraph,
   },
 };
 </script>
