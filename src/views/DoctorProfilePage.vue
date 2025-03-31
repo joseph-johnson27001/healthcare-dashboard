@@ -22,7 +22,7 @@
         </div>
       </ContainerCard>
 
-      <ContainerCard>
+      <ContainerCard class="contact-card">
         <div class="contact-credentials">
           <p><strong>Phone:</strong> {{ doctor.contact.phone }}</p>
           <p><strong>Email:</strong> {{ doctor.contact.email }}</p>
@@ -101,14 +101,31 @@
   object-fit: cover;
 }
 
-.doctor-info {
+.doctor-info,
+.contact-credentials {
   display: flex;
   flex-direction: column;
 }
 
+.contact-credentials p,
+.doctor-info p {
+  color: #222;
+  font-family: "Assistant";
+}
+
+.contact-credentials p,
 .doctor-info p,
 .doctor-info h1 {
-  margin: 6px 0;
+  justify-content: center;
+  margin: 4px 0;
+}
+
+.contact-card {
+  justify-content: center;
+}
+
+.doctor-info h1 {
+  font-size: 1.5rem;
 }
 
 .doctor-name {
@@ -176,8 +193,8 @@
 }
 
 strong {
-  font-family: "Assistant", sans-serif;
-  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
   font-weight: 500;
   color: #345a98;
   margin-bottom: 10px;
@@ -220,6 +237,9 @@ li {
 @media (max-width: 1000px) {
   .kpi-section {
     grid-template-columns: 1fr 1fr;
+  }
+  .doctor-header-container {
+    grid-template-columns: 1fr;
   }
 }
 
