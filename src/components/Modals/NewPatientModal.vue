@@ -2,10 +2,13 @@
   <div class="modal-overlay" @click.self="$emit('close')">
     <div class="modal-content">
       <div class="modal-header">
-        <div class="icon-container">
-          <i class="fas fa-user-plus"></i>
+        <div class="header-container">
+          <div class="icon-container">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <h2>New Patient</h2>
         </div>
-        <h2>New Patient</h2>
+        <button class="close-btn" @click="$emit('close')">×</button>
       </div>
 
       <form @submit.prevent="savePatient">
@@ -109,9 +112,6 @@
 
         <!-- Form Actions -->
         <div class="form-actions">
-          <button type="button" class="cancel-btn" @click="$emit('close')">
-            Cancel
-          </button>
           <button type="submit" class="save-btn">Save</button>
         </div>
       </form>
@@ -179,8 +179,14 @@ export default {
 .modal-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   margin-bottom: 15px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
 }
 
 .modal-header h2 {
@@ -201,6 +207,7 @@ export default {
   height: 40px;
   background-color: rgba(0, 123, 255, 0.1);
   border-radius: 4px;
+  margin-right: 10px;
 }
 
 .icon-container i {
@@ -282,7 +289,7 @@ textarea {
 
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .save-btn {
@@ -295,25 +302,24 @@ textarea {
   cursor: pointer;
 }
 
-.cancel-btn {
-  background: #ddd;
-  color: #333;
-  border: none;
-  padding: 10px 12px;
-  font-size: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .save-btn:hover {
   background: #4f6edc;
 }
 
-.cancel-btn:hover {
-  background: #ccc;
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #345a98;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 5px;
 }
 
-/* Mobile adjustments */
+.close-btn:hover {
+  background: #f0f0f0;
+}
+
 @media (max-width: 768px) {
   .form-row {
     flex-direction: column;

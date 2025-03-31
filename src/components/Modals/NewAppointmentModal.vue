@@ -6,6 +6,7 @@
           <i class="fas fa-calendar-plus"></i>
         </div>
         <h2>New Appointment</h2>
+        <button class="close-btn" @click="$emit('close')">×</button>
       </div>
 
       <form @submit.prevent="saveAppointment">
@@ -83,9 +84,6 @@
 
         <!-- Form Actions -->
         <div class="form-actions">
-          <button type="button" class="cancel-btn" @click="$emit('close')">
-            Cancel
-          </button>
           <button type="submit" class="save-btn">Save</button>
         </div>
       </form>
@@ -163,6 +161,7 @@ export default {
   font-weight: 500;
   color: #345a98;
   flex-shrink: 0;
+  flex-grow: 1;
 }
 
 .icon-container {
@@ -244,7 +243,7 @@ textarea {
 
 .form-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .save-btn {
@@ -257,25 +256,24 @@ textarea {
   cursor: pointer;
 }
 
-.cancel-btn {
-  background: #ddd;
-  color: #333;
-  border: none;
-  padding: 10px 12px;
-  font-size: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .save-btn:hover {
   background: #4f6edc;
 }
 
-.cancel-btn:hover {
-  background: #ccc;
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #345a98;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 5px;
 }
 
-/* Mobile adjustments */
+.close-btn:hover {
+  background: #f0f0f0;
+}
+
 @media (max-width: 768px) {
   .form-row {
     flex-direction: column;
