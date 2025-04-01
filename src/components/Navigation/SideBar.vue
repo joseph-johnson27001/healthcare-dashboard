@@ -87,9 +87,9 @@ export default {
     navigateTo(item) {
       if (item.name === "logout") {
         return;
+      } else {
+        this.$router.push(item.route);
       }
-
-      this.$router.push(item.route);
     },
     toggleCollapse() {
       this.collapsed = !this.collapsed;
