@@ -99,6 +99,7 @@ export default {
 
 <style scoped>
 .sidebar {
+  background: #fff;
   width: 250px;
   color: rgba(47, 43, 61);
   min-height: 100vh;
