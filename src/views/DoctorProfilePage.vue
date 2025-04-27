@@ -662,7 +662,7 @@ export default {
         },
       ];
       this.doctor.existingNotes = [
-        "Dr. John Doe is currently undergoing advanced training in minimally invasive surgery techniques. The training is expected to enhance his surgical precision and reduce recovery times for patients.",
+        `${this.doctor.name} is currently undergoing advanced training in minimally invasive surgery techniques. The training is expected to enhance his surgical precision and reduce recovery times for patients.`,
       ];
     }
   },
