@@ -30,7 +30,14 @@
           <i class="fas fa-calendar-plus"></i>
         </button>
       </div>
+
+      <div class="hamburger-menu">
+        <button @click="toggleSidebar">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
+
     <!-- New Patient Modal -->
     <NewPatientModal
       v-if="showNewPatientModal"
@@ -60,6 +67,15 @@ export default {
       showNewPatientModal: false,
       showNewAppointmentModal: false,
     };
+  },
+
+  methods: {
+    checkMobileView() {
+      this.isMobile = window.innerWidth <= 700;
+    },
+    toggleSidebar() {
+      this.$emit("toggle-sidebar");
+    },
   },
 };
 </script>
@@ -161,10 +177,43 @@ export default {
   border: 2px solid white;
 }
 
-@media (max-width: 699px) {
-  .add-patient-btn {
-    font-size: 14px;
-    padding: 8px 12px;
+.hamburger-menu button {
+  background: #6685ff;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  position: relative;
+}
+
+.hamburger-menu button:hover {
+  background-color: #4f76e1;
+}
+
+.hamburger-menu button i {
+  font-size: 22px;
+}
+
+@media (min-width: 701px) {
+  .hamburger-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .add-patient-btn,
+  .add-appointment-btn {
+    display: none;
+  }
+  .hamburger-menu {
+    display: block;
   }
 }
 </style>
