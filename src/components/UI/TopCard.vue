@@ -38,6 +38,20 @@
       </div>
     </div>
 
+    <!-- Mobile Navigation Menu (Full-page overlay) -->
+    <div v-if="isMobileNavVisible" class="mobile-nav-overlay">
+      <div class="mobile-nav">
+        <button class="close-btn" @click="toggleSidebar">X</button>
+        <ul>
+          <li v-for="item in menuItems" :key="item.name">
+            <router-link :to="item.route" @click="toggleSidebar">
+              <i :class="item.icon"></i> {{ item.label }}
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <!-- New Patient Modal -->
     <NewPatientModal
       v-if="showNewPatientModal"
@@ -66,15 +80,62 @@ export default {
     return {
       showNewPatientModal: false,
       showNewAppointmentModal: false,
+      isMobileNavVisible: false,
+      menuItems: [
+        {
+          name: "dashboard",
+          label: "Dashboard",
+          icon: "fas fa-home",
+          route: "/",
+        },
+        {
+          name: "appointments",
+          label: "Appointments",
+          icon: "far fa-calendar-check",
+          route: "/appointments",
+        },
+        {
+          name: "patients",
+          label: "Patients",
+          icon: "fas fa-user-injured",
+          route: "/patients",
+        },
+        {
+          name: "doctors",
+          label: "Doctors",
+          icon: "fas fa-user-doctor",
+          route: "/doctors",
+        },
+        {
+          name: "medical-records",
+          label: "Medical Records",
+          icon: "fas fa-file-medical",
+          route: "/medical-records",
+        },
+        {
+          name: "prescriptions",
+          label: "Prescriptions",
+          icon: "fas fa-pills",
+          route: "/prescriptions",
+        },
+        {
+          name: "analytics",
+          label: "Analytics",
+          icon: "fas fa-chart-line",
+          route: "/analytics",
+        },
+        {
+          name: "logout",
+          label: "Logout",
+          icon: "fas fa-sign-out-alt",
+          route: "#",
+        },
+      ],
     };
   },
-
   methods: {
-    checkMobileView() {
-      this.isMobile = window.innerWidth <= 700;
-    },
     toggleSidebar() {
-      this.$emit("toggle-sidebar");
+      this.isMobileNavVisible = !this.isMobileNavVisible;
     },
   },
 };
@@ -190,7 +251,6 @@ export default {
   align-items: center;
   justify-content: center;
   outline: none;
-  position: relative;
 }
 
 .hamburger-menu button:hover {
@@ -199,6 +259,62 @@ export default {
 
 .hamburger-menu button i {
   font-size: 22px;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.mobile-nav {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: -4px 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 50px;
+  padding-left: 20px;
+}
+
+.mobile-nav ul li {
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.mobile-nav ul li a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-nav ul li a i {
+  margin-right: 10px;
+  color: #4f76e1;
+  font-size: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #333;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
 }
 
 @media (min-width: 701px) {
