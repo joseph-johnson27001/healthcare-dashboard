@@ -31,6 +31,7 @@ export default {
   data() {
     return {
       collapsed: false,
+      currentPath: null,
       menuItems: [
         {
           name: "dashboard",
@@ -83,6 +84,11 @@ export default {
       ],
     };
   },
+  watch: {
+    $route(to) {
+      this.currentPath = to.path;
+    },
+  },
   methods: {
     navigateTo(item) {
       this.$router.push(item.route);
@@ -91,7 +97,7 @@ export default {
       this.collapsed = !this.collapsed;
     },
     isActive(item) {
-      return this.$route.path === item.route;
+      return this.currentPath === item.route;
     },
   },
 };
@@ -159,14 +165,12 @@ export default {
   margin: 4px 7px;
   display: flex;
   align-items: center;
-  transition: background-color 0.3s ease;
   white-space: nowrap;
   color: rgba(47, 43, 61, 0.9);
 }
 
 .sidebar ul li.logout-item {
   margin-top: auto;
-  transition: color 0.3s ease;
 }
 
 .sidebar ul li:hover {
