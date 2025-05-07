@@ -5,18 +5,21 @@
       <TopCard />
       <router-view />
     </div>
+    <DashboardButton />
   </div>
 </template>
 
 <script>
 import SideBar from "./components/Navigation/SideBar.vue";
 import TopCard from "./components/UI/TopCard.vue";
+import DashboardButton from "./components/UI/DashboardButton.vue";
 
 export default {
   name: "App",
   components: {
     SideBar,
     TopCard,
+    DashboardButton,
   },
 };
 </script>
