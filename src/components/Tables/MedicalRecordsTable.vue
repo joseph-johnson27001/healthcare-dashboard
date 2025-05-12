@@ -107,8 +107,8 @@ export default {
         this.currentPage = pageNumber;
       }
     },
-    navigateToRecord(id) {
-      this.$router.push(`/medical-record/${id}`);
+    navigateToRecord() {
+      return;
     },
   },
 };
